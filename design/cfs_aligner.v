@@ -13,10 +13,10 @@
     parameter ALGN_DATA_WIDTH = 32,
     parameter FIFO_DEPTH      = 8,
     
-    localparam int unsigned APB_ADDR_WIDTH    = 16,
-    localparam int unsigned APB_DATA_WIDTH    = 32,
-    localparam int unsigned ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
-    localparam int unsigned ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1
+    localparam APB_ADDR_WIDTH    = 16,
+    localparam APB_DATA_WIDTH    = 32,
+    localparam ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
+    localparam ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1
   ) (
     input wire clk,
     input wire reset_n,
@@ -27,27 +27,27 @@
     input wire                        penable,
     input wire[APB_DATA_WIDTH-1:0]    pwdata,
     output wire                       pready,
-    output reg[APB_DATA_WIDTH-1:0]    prdata,
-    output reg                        pslverr,
+    output wire[APB_DATA_WIDTH-1:0]    prdata,
+    output wire                        pslverr,
     
     input                             md_rx_valid,
     input[ALGN_DATA_WIDTH-1:0]        md_rx_data,
     input[ALGN_OFFSET_WIDTH-1:0]      md_rx_offset,
     input[ALGN_SIZE_WIDTH-1:0]        md_rx_size,
-    output reg                        md_rx_ready,
-    output reg                        md_rx_err,
+    output wire                        md_rx_ready,
+    output wire                        md_rx_err,
     
-    output reg                        md_tx_valid,
-    output reg[ALGN_DATA_WIDTH-1:0]   md_tx_data,
-    output reg[ALGN_OFFSET_WIDTH-1:0] md_tx_offset,
-    output reg[ALGN_SIZE_WIDTH-1:0]   md_tx_size,
+    output wire                        md_tx_valid,
+    output wire[ALGN_DATA_WIDTH-1:0]   md_tx_data,
+    output wire[ALGN_OFFSET_WIDTH-1:0] md_tx_offset,
+    output wire[ALGN_SIZE_WIDTH-1:0]   md_tx_size,
     input                             md_tx_ready,
     input                             md_tx_err,
     
-    output reg                        irq
+    output wire                        irq
   );
     
-    localparam int unsigned STATUS_CNT_DROP_WIDTH = 8;
+    localparam STATUS_CNT_DROP_WIDTH = 8;
     
     cfs_aligner_core#(
       .APB_ADDR_WIDTH( APB_ADDR_WIDTH),

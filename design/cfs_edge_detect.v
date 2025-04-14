@@ -8,12 +8,12 @@
 `ifndef CFS_EDGE_DETECT_V
   `define CFS_EDGE_DETECT_V
   
-  module cfs_edge_detect #(parameter bit EDGE = 1, parameter bit RESET_VAL = !EDGE)(
+  module cfs_edge_detect #(parameter  EDGE = 1, parameter  RESET_VAL = !EDGE)(
     input clk,
     input reset_n,
     input data,
     
-    output reg detected
+    output detected
   );
     
     reg dly1_data;

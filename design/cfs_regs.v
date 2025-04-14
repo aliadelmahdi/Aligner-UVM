@@ -1,4 +1,4 @@
-​///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 // File:        cfs_regs.v
 // Author:      Cristian Florin Slav
 // Date:        2023-06-27
@@ -22,9 +22,9 @@
     parameter STATUS_RX_LVL_WIDTH   = 4,
     parameter STATUS_TX_LVL_WIDTH   = 4,
     
-    localparam int unsigned APB_DATA_WIDTH  = 32,
-    localparam int unsigned ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
-    localparam int unsigned ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1) (
+    localparam APB_DATA_WIDTH  = 32,
+    localparam ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
+    localparam ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1) (
     
     input wire                            pclk,
     input wire                            presetn,
@@ -108,7 +108,7 @@
     reg irq_tx_fifo_full;
     reg irq_max_drop;
     
-    always_comb begin
+     always @(*)  begin
       ctrl_rd_val = 0;
       
       ctrl_rd_val[LSB_CTRL_SIZE   + ALGN_SIZE_WIDTH   - 1 : LSB_CTRL_SIZE]   = ctrl_size;
@@ -117,7 +117,7 @@
     
     reg[APB_DATA_WIDTH-1:0] status_rd_val;
     
-    always_comb begin
+    always @(*) begin
       status_rd_val = 0;
       
       status_rd_val[LSB_STATUS_CNT_DROP+ STATUS_CNT_DROP_WIDTH-1:LSB_STATUS_CNT_DROP] = status_cnt_drop;
@@ -127,7 +127,7 @@
     
     reg[APB_DATA_WIDTH-1:0] irqen_rd_val;
     
-    always_comb begin
+    always @(*) begin
       irqen_rd_val = 0;
       
       irqen_rd_val[LSB_IRQEN_RX_FIFO_EMPTY] = irqen_rx_fifo_empty;
@@ -139,7 +139,7 @@
     
     reg[APB_DATA_WIDTH-1:0] irq_rd_val;
     
-    always_comb begin
+    always @(*) begin
       irq_rd_val = 0;
       
       irq_rd_val[LSB_IRQEN_RX_FIFO_EMPTY] = irq_rx_fifo_empty;

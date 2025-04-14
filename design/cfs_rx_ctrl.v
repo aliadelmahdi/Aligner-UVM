@@ -22,9 +22,9 @@
     parameter ALGN_DATA_WIDTH       = 32,
     parameter STATUS_CNT_DROP_WIDTH = 8,
 
-    localparam int unsigned ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
-    localparam int unsigned ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1,
-    localparam int unsigned FIFO_DATA_WIDTH   = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH
+    localparam   ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
+    localparam   ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1,
+    localparam   FIFO_DATA_WIDTH   = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH
   )(
     input                                  preset_n,
     input                                  pclk,
@@ -48,14 +48,14 @@
     input                                  rx_fifo_full
     );
 
-    localparam int unsigned DATA_MSB = ALGN_DATA_WIDTH-1;
-    localparam int unsigned DATA_LSB = 0;
+    localparam DATA_MSB = ALGN_DATA_WIDTH-1;
+    localparam DATA_LSB = 0;
     
-    localparam int unsigned OFFSET_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH-1;
-    localparam int unsigned OFFSET_LSB = ALGN_DATA_WIDTH;
+    localparam OFFSET_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH-1;
+    localparam OFFSET_LSB = ALGN_DATA_WIDTH;
     
-    localparam int unsigned SIZE_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH+ALGN_SIZE_WIDTH-1;
-    localparam int unsigned SIZE_LSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH;
+    localparam SIZE_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH+ALGN_SIZE_WIDTH-1;
+    localparam SIZE_LSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH;
     
     //STATUS.CNT_DROP in the md_rx_clk domain
     reg[STATUS_CNT_DROP_WIDTH-1:0] md_rx_clk_status_cnt_drop;
@@ -80,7 +80,7 @@
       end
     end
 
-    always_comb begin
+    always @(*) begin
       if(md_rx_valid == 1) begin
         if(md_rx_size == 0) begin
           md_rx_err = 1;

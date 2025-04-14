@@ -1,0 +1,43 @@
+# List of files for the SPI testbench
+
+# Interface files
+#interface/...sv
+
+# Design files
+design/cfs_synch.v
+design/cfs_synch_fifo.v
+design/cfs_rx_ctrl.v
+design/cfs_ctrl.v
+design/cfs_tx_ctrl.v
+design/cfs_edge_detect.v
+design/cfs_regs.v
+design/cfs_aligner_core.v
+design/cfs_aligner.v
+
+# Testbench objects
+
+
+# objects
+
+# Driver files
+
+# Monitor files
+
+# Sequencer files
+
+
+# Agents
+
+# Scoreboard and coverage
+
+# Environment files
+top/test/environment/cfs_algn_pkg.sv
+top/test/environment/cfs_algn_env.sv
+
+# Test files
+top/test/cfs_algn_test_base.sv
+top/test/cfs_algn_test_reg_access.sv
+top/test/cfs_algn_test_pkg.sv
+
+# Top-level file
+top/top.sv

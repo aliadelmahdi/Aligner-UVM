@@ -51,15 +51,15 @@
     output reg[CNT_WIDTH:0]     pop_fifo_lvl
   );
 
-    initial begin
-      assert(DATA_WIDTH >= 1) else begin
-        $error($sformatf("Legal values for DATA_WIDTH parameter must greater of equal than 1 but found 'd%0d", DATA_WIDTH));
-      end
+    // initial begin
+    //   assert(DATA_WIDTH >= 1) else begin
+    //     $error($sformatf("Legal values for DATA_WIDTH parameter must greater of equal than 1 but found 'd%0d", DATA_WIDTH));
+    //   end
 
-      assert(FIFO_DEPTH >= 1) else begin
-        $error($sformatf("Legal values for FIFO_DEPTH parameter must greater of equal than 1 but found 'd%0d", FIFO_DEPTH));
-      end
-    end
+    //   assert(FIFO_DEPTH >= 1) else begin
+    //     $error($sformatf("Legal values for FIFO_DEPTH parameter must greater of equal than 1 but found 'd%0d", FIFO_DEPTH));
+    //   end
+    // end
 
     //Memory containing the FIFO information
     reg[DATA_WIDTH-1:0] fifo[0:FIFO_DEPTH-1];
@@ -90,7 +90,7 @@
     //FIFO level - in POP clock domain, delayed
     reg[CNT_WIDTH:0] pop_fifo_lvl_dly;
 
-    always_comb begin
+    always@(*) begin
       if(wr_ptr_push == FIFO_DEPTH - 1) begin
         next_wr_ptr_push = 0;
       end
@@ -134,7 +134,7 @@
 
     assign push_ready = push_valid & !push_full;
 
-    always_comb begin
+    always @(*) begin
       if(rd_ptr_pop == FIFO_DEPTH - 1) begin
         next_rd_ptr_pop = 0;
       end
@@ -157,7 +157,7 @@
       end
     end
     
-    always_comb begin
+     always @(*)  begin
       if(wr_ptr_push == rd_ptr_push) begin
         if(push_fifo_lvl_dly >= FIFO_DEPTH - 1) begin
           push_fifo_lvl = FIFO_DEPTH;
@@ -174,7 +174,7 @@
       end
     end
 
-    always_comb begin
+    always @(*) begin
       if(wr_ptr_pop == rd_ptr_pop) begin
         if(pop_fifo_lvl_dly >= FIFO_DEPTH - 1) begin
           pop_fifo_lvl = FIFO_DEPTH;

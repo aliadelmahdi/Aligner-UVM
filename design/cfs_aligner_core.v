@@ -143,12 +143,12 @@
      //Set this parameter to 0 only if pclk and md_tx_clk are tied to the same clock signal.
      parameter CDC_REG_TO_TX  = 1,
 
-    localparam int unsigned STATUS_CNT_DROP_WIDTH = 8,
+    localparam STATUS_CNT_DROP_WIDTH = 8,
 
-    localparam int unsigned APB_DATA_WIDTH  = 32,
+    localparam APB_DATA_WIDTH  = 32,
 
-    localparam int unsigned ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
-    localparam int unsigned ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1
+    localparam ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
+    localparam ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1
   ) (
     input wire pclk,
     input wire preset_n,
@@ -159,44 +159,44 @@
     input wire                        penable,
     input wire[APB_DATA_WIDTH-1:0]    pwdata,
     output wire                       pready,
-    output reg[APB_DATA_WIDTH-1:0]    prdata,
-    output reg                        pslverr,
+    output wire [APB_DATA_WIDTH-1:0]    prdata,
+    output wire                        pslverr,
 
     input                             md_rx_clk,
     input                             md_rx_valid,
     input[ALGN_DATA_WIDTH-1:0]        md_rx_data,
     input[ALGN_OFFSET_WIDTH-1:0]      md_rx_offset,
     input[ALGN_SIZE_WIDTH-1:0]        md_rx_size,
-    output reg                        md_rx_ready,
-    output reg                        md_rx_err,
+    output wire                        md_rx_ready,
+    output wire                        md_rx_err,
 
     input                             md_tx_clk,
-    output reg                        md_tx_valid,
-    output reg[ALGN_DATA_WIDTH-1:0]   md_tx_data,
-    output reg[ALGN_OFFSET_WIDTH-1:0] md_tx_offset,
-    output reg[ALGN_SIZE_WIDTH-1:0]   md_tx_size,
+    output wire                        md_tx_valid,
+    output wire[ALGN_DATA_WIDTH-1:0]   md_tx_data,
+    output wire[ALGN_OFFSET_WIDTH-1:0] md_tx_offset,
+    output wire[ALGN_SIZE_WIDTH-1:0]   md_tx_size,
     input                             md_tx_ready,
     input                             md_tx_err,
 
     output wire                       irq
   );
 
-    localparam int unsigned FIFO_WIDTH        = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH;
-    localparam int unsigned FIFO_LVL_WIDTH    = $clog2(FIFO_DEPTH) + 1;
+    localparam FIFO_WIDTH        = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH;
+    localparam FIFO_LVL_WIDTH    = $clog2(FIFO_DEPTH) + 1;
 
-    initial begin
-      assert(APB_ADDR_WIDTH >= 12) else begin
-        $error($sformatf("Legal values for APB_ADDR_WIDTH parameter must greater of equal than 12 but found 'd%0d", APB_ADDR_WIDTH));
-      end
+    // initial begin
+    //   assert(APB_ADDR_WIDTH >= 12) else begin
+    //     $error($sformatf("Legal values for APB_ADDR_WIDTH parameter must greater of equal than 12 but found 'd%0d", APB_ADDR_WIDTH));
+    //   end
 
-      assert($countones(ALGN_DATA_WIDTH) == 1) else begin
-        $error($sformatf("Legal values for ALGN_DATA_WIDTH parameter must be a power of two but found 'd%0d", ALGN_DATA_WIDTH));
-      end
+    //   assert($countones(ALGN_DATA_WIDTH) == 1) else begin
+    //     $error($sformatf("Legal values for ALGN_DATA_WIDTH parameter must be a power of two but found 'd%0d", ALGN_DATA_WIDTH));
+    //   end
 
-      assert(ALGN_DATA_WIDTH >= 8) else begin
-        $error($sformatf("Legal values for ALGN_DATA_WIDTH parameter must be greater or equal than 8 but found 'd%0d", ALGN_DATA_WIDTH));
-      end
-    end
+    //   assert(ALGN_DATA_WIDTH >= 8) else begin
+    //     $error($sformatf("Legal values for ALGN_DATA_WIDTH parameter must be greater or equal than 8 but found 'd%0d", ALGN_DATA_WIDTH));
+    //   end
+    // end
 
     wire[STATUS_CNT_DROP_WIDTH-1:0] rx_ctrl_2_regs_status_cnt_drop;
     wire                            regs_2_rx_ctrl_ctrl_clr;

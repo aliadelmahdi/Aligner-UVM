@@ -13,9 +13,9 @@
   module cfs_tx_ctrl #(
     parameter ALGN_DATA_WIDTH = 32,
 
-    localparam int unsigned ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
-    localparam int unsigned ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1,
-    localparam int unsigned FIFO_DATA_WIDTH   = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH
+    localparam ALGN_OFFSET_WIDTH = ALGN_DATA_WIDTH <= 8 ? 1 : $clog2(ALGN_DATA_WIDTH/8),
+    localparam ALGN_SIZE_WIDTH   = $clog2(ALGN_DATA_WIDTH/8)+1,
+    localparam FIFO_DATA_WIDTH   = ALGN_DATA_WIDTH + ALGN_OFFSET_WIDTH + ALGN_SIZE_WIDTH
   )(
     input                              pop_valid,
     input[FIFO_DATA_WIDTH-1:0]         pop_data,
@@ -28,14 +28,14 @@
     input                              md_tx_ready
     );
     
-    localparam int unsigned DATA_MSB = ALGN_DATA_WIDTH-1;
-    localparam int unsigned DATA_LSB = 0;
+    localparam DATA_MSB = ALGN_DATA_WIDTH-1;
+    localparam DATA_LSB = 0;
     
-    localparam int unsigned OFFSET_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH-1;
-    localparam int unsigned OFFSET_LSB = ALGN_DATA_WIDTH;
+    localparam OFFSET_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH-1;
+    localparam OFFSET_LSB = ALGN_DATA_WIDTH;
     
-    localparam int unsigned SIZE_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH+ALGN_SIZE_WIDTH-1;
-    localparam int unsigned SIZE_LSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH;
+    localparam SIZE_MSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH+ALGN_SIZE_WIDTH-1;
+    localparam SIZE_LSB = ALGN_DATA_WIDTH+ALGN_OFFSET_WIDTH;
     
     assign pop_ready    = pop_valid & md_tx_ready;
     assign md_tx_valid  = pop_valid;
