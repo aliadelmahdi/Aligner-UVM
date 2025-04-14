@@ -1,8 +1,17 @@
-# List of files for the SPI testbench
++incdir+./design
++incdir+./interface
++incdir+./top
++incdir+./top/test
++incdir+./top/test/environment
++incdir+./top/test/environment/apb_agent
++incdir+./top/test/environment/apb_agent/driver
++incdir+./top/test/environment/apb_agent/monitor
++incdir+./top/test/environment/apb_agent/sequencer
++incdir+./top/test/environment/coverage_collector
++incdir+./top/test/environment/scoreboard
 
 # Interface files
-#interface/...sv
-
+interface/cfs_apb_if.sv
 # Design files
 design/cfs_synch.v
 design/cfs_synch_fifo.v
@@ -27,6 +36,7 @@ design/cfs_aligner.v
 
 
 # Agents
+top/test/environment/apb_agent/cfs_apb_pkg.sv
 
 # Scoreboard and coverage
 

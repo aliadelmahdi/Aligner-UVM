@@ -1,5 +1,5 @@
 vlib work
-vlog +incdir+./interface +incdir+./top/test +incdir+./top/test/enviroment -f "scripts/list.list" -mfcu +cover -covercells
+vlog -f "scripts/list.f" -mfcu +cover -covercells
 vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
 log -r /*
 # Code Coverage

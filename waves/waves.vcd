@@ -1,5 +1,5 @@
 $date
-	Mon Apr 14 14:58:02 2025
+	Mon Apr 14 19:32:52 2025
 $end
 $version
 	QuestaSim Version 2021.1
@@ -10,1242 +10,1255 @@ $end
 
 $scope module tb_top $end
 $var reg 1 ! clk $end
-$var reg 1 " reset_n $end
+
+$scope module apb_if $end
+$var parameter 32 " CFS_APB_MAX_ADDR_WIDTH $end
+$var parameter 32 # CFS_APB_MAX_DATA_WIDTH $end
+$var reg 1 $ pclk $end
+$var reg 1 % preset_n $end
+$var reg 1 & psel $end
+$var reg 1 ' penable $end
+$var reg 16 ( paddr [15:0] $end
+$var reg 32 ) pwdata [31:0] $end
+$var reg 1 * pready $end
+$var reg 32 + prdata [31:0] $end
+$var reg 1 , pslverr $end
+$upscope $end
 
 $scope module DUT $end
-$var parameter 32 # ALGN_DATA_WIDTH $end
-$var parameter 32 $ FIFO_DEPTH $end
-$var parameter 32 % APB_ADDR_WIDTH $end
-$var parameter 32 & APB_DATA_WIDTH $end
-$var parameter 32 ' ALGN_OFFSET_WIDTH $end
-$var parameter 32 ( ALGN_SIZE_WIDTH $end
-$var parameter 32 ) STATUS_CNT_DROP_WIDTH $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 , paddr [15] $end
-$var wire 1 - paddr [14] $end
-$var wire 1 . paddr [13] $end
-$var wire 1 / paddr [12] $end
-$var wire 1 0 paddr [11] $end
-$var wire 1 1 paddr [10] $end
-$var wire 1 2 paddr [9] $end
-$var wire 1 3 paddr [8] $end
-$var wire 1 4 paddr [7] $end
-$var wire 1 5 paddr [6] $end
-$var wire 1 6 paddr [5] $end
-$var wire 1 7 paddr [4] $end
-$var wire 1 8 paddr [3] $end
-$var wire 1 9 paddr [2] $end
-$var wire 1 : paddr [1] $end
-$var wire 1 ; paddr [0] $end
-$var wire 1 < pwrite $end
-$var wire 1 = psel $end
-$var wire 1 > penable $end
-$var wire 1 ? pwdata [31] $end
-$var wire 1 @ pwdata [30] $end
-$var wire 1 A pwdata [29] $end
-$var wire 1 B pwdata [28] $end
-$var wire 1 C pwdata [27] $end
-$var wire 1 D pwdata [26] $end
-$var wire 1 E pwdata [25] $end
-$var wire 1 F pwdata [24] $end
-$var wire 1 G pwdata [23] $end
-$var wire 1 H pwdata [22] $end
-$var wire 1 I pwdata [21] $end
-$var wire 1 J pwdata [20] $end
-$var wire 1 K pwdata [19] $end
-$var wire 1 L pwdata [18] $end
-$var wire 1 M pwdata [17] $end
-$var wire 1 N pwdata [16] $end
-$var wire 1 O pwdata [15] $end
-$var wire 1 P pwdata [14] $end
-$var wire 1 Q pwdata [13] $end
-$var wire 1 R pwdata [12] $end
-$var wire 1 S pwdata [11] $end
-$var wire 1 T pwdata [10] $end
-$var wire 1 U pwdata [9] $end
-$var wire 1 V pwdata [8] $end
-$var wire 1 W pwdata [7] $end
-$var wire 1 X pwdata [6] $end
-$var wire 1 Y pwdata [5] $end
-$var wire 1 Z pwdata [4] $end
-$var wire 1 [ pwdata [3] $end
-$var wire 1 \ pwdata [2] $end
-$var wire 1 ] pwdata [1] $end
-$var wire 1 ^ pwdata [0] $end
-$var wire 1 _ pready $end
-$var wire 1 ` prdata [31] $end
-$var wire 1 a prdata [30] $end
-$var wire 1 b prdata [29] $end
-$var wire 1 c prdata [28] $end
-$var wire 1 d prdata [27] $end
-$var wire 1 e prdata [26] $end
-$var wire 1 f prdata [25] $end
-$var wire 1 g prdata [24] $end
-$var wire 1 h prdata [23] $end
-$var wire 1 i prdata [22] $end
-$var wire 1 j prdata [21] $end
-$var wire 1 k prdata [20] $end
-$var wire 1 l prdata [19] $end
-$var wire 1 m prdata [18] $end
-$var wire 1 n prdata [17] $end
-$var wire 1 o prdata [16] $end
-$var wire 1 p prdata [15] $end
-$var wire 1 q prdata [14] $end
-$var wire 1 r prdata [13] $end
-$var wire 1 s prdata [12] $end
-$var wire 1 t prdata [11] $end
-$var wire 1 u prdata [10] $end
-$var wire 1 v prdata [9] $end
-$var wire 1 w prdata [8] $end
-$var wire 1 x prdata [7] $end
-$var wire 1 y prdata [6] $end
-$var wire 1 z prdata [5] $end
-$var wire 1 { prdata [4] $end
-$var wire 1 | prdata [3] $end
-$var wire 1 } prdata [2] $end
-$var wire 1 ~ prdata [1] $end
-$var wire 1 !! prdata [0] $end
-$var wire 1 "! pslverr $end
-$var wire 1 #! md_rx_valid $end
-$var wire 1 $! md_rx_data [31] $end
-$var wire 1 %! md_rx_data [30] $end
-$var wire 1 &! md_rx_data [29] $end
-$var wire 1 '! md_rx_data [28] $end
-$var wire 1 (! md_rx_data [27] $end
-$var wire 1 )! md_rx_data [26] $end
-$var wire 1 *! md_rx_data [25] $end
-$var wire 1 +! md_rx_data [24] $end
-$var wire 1 ,! md_rx_data [23] $end
-$var wire 1 -! md_rx_data [22] $end
-$var wire 1 .! md_rx_data [21] $end
-$var wire 1 /! md_rx_data [20] $end
-$var wire 1 0! md_rx_data [19] $end
-$var wire 1 1! md_rx_data [18] $end
-$var wire 1 2! md_rx_data [17] $end
-$var wire 1 3! md_rx_data [16] $end
-$var wire 1 4! md_rx_data [15] $end
-$var wire 1 5! md_rx_data [14] $end
-$var wire 1 6! md_rx_data [13] $end
-$var wire 1 7! md_rx_data [12] $end
-$var wire 1 8! md_rx_data [11] $end
-$var wire 1 9! md_rx_data [10] $end
-$var wire 1 :! md_rx_data [9] $end
-$var wire 1 ;! md_rx_data [8] $end
-$var wire 1 <! md_rx_data [7] $end
-$var wire 1 =! md_rx_data [6] $end
-$var wire 1 >! md_rx_data [5] $end
-$var wire 1 ?! md_rx_data [4] $end
-$var wire 1 @! md_rx_data [3] $end
-$var wire 1 A! md_rx_data [2] $end
-$var wire 1 B! md_rx_data [1] $end
-$var wire 1 C! md_rx_data [0] $end
-$var wire 1 D! md_rx_offset [1] $end
-$var wire 1 E! md_rx_offset [0] $end
-$var wire 1 F! md_rx_size [2] $end
-$var wire 1 G! md_rx_size [1] $end
-$var wire 1 H! md_rx_size [0] $end
-$var wire 1 I! md_rx_ready $end
-$var wire 1 J! md_rx_err $end
-$var wire 1 K! md_tx_valid $end
-$var wire 1 L! md_tx_data [31] $end
-$var wire 1 M! md_tx_data [30] $end
-$var wire 1 N! md_tx_data [29] $end
-$var wire 1 O! md_tx_data [28] $end
-$var wire 1 P! md_tx_data [27] $end
-$var wire 1 Q! md_tx_data [26] $end
-$var wire 1 R! md_tx_data [25] $end
-$var wire 1 S! md_tx_data [24] $end
-$var wire 1 T! md_tx_data [23] $end
-$var wire 1 U! md_tx_data [22] $end
-$var wire 1 V! md_tx_data [21] $end
-$var wire 1 W! md_tx_data [20] $end
-$var wire 1 X! md_tx_data [19] $end
-$var wire 1 Y! md_tx_data [18] $end
-$var wire 1 Z! md_tx_data [17] $end
-$var wire 1 [! md_tx_data [16] $end
-$var wire 1 \! md_tx_data [15] $end
-$var wire 1 ]! md_tx_data [14] $end
-$var wire 1 ^! md_tx_data [13] $end
-$var wire 1 _! md_tx_data [12] $end
-$var wire 1 `! md_tx_data [11] $end
-$var wire 1 a! md_tx_data [10] $end
-$var wire 1 b! md_tx_data [9] $end
-$var wire 1 c! md_tx_data [8] $end
-$var wire 1 d! md_tx_data [7] $end
-$var wire 1 e! md_tx_data [6] $end
-$var wire 1 f! md_tx_data [5] $end
-$var wire 1 g! md_tx_data [4] $end
-$var wire 1 h! md_tx_data [3] $end
-$var wire 1 i! md_tx_data [2] $end
-$var wire 1 j! md_tx_data [1] $end
-$var wire 1 k! md_tx_data [0] $end
-$var wire 1 l! md_tx_offset [1] $end
-$var wire 1 m! md_tx_offset [0] $end
-$var wire 1 n! md_tx_size [2] $end
-$var wire 1 o! md_tx_size [1] $end
-$var wire 1 p! md_tx_size [0] $end
-$var wire 1 q! md_tx_ready $end
-$var wire 1 r! md_tx_err $end
-$var wire 1 s! irq $end
+$var parameter 32 - ALGN_DATA_WIDTH $end
+$var parameter 32 . FIFO_DEPTH $end
+$var parameter 32 / APB_ADDR_WIDTH $end
+$var parameter 32 0 APB_DATA_WIDTH $end
+$var parameter 32 1 ALGN_OFFSET_WIDTH $end
+$var parameter 32 2 ALGN_SIZE_WIDTH $end
+$var parameter 32 3 STATUS_CNT_DROP_WIDTH $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 6 paddr [15] $end
+$var wire 1 7 paddr [14] $end
+$var wire 1 8 paddr [13] $end
+$var wire 1 9 paddr [12] $end
+$var wire 1 : paddr [11] $end
+$var wire 1 ; paddr [10] $end
+$var wire 1 < paddr [9] $end
+$var wire 1 = paddr [8] $end
+$var wire 1 > paddr [7] $end
+$var wire 1 ? paddr [6] $end
+$var wire 1 @ paddr [5] $end
+$var wire 1 A paddr [4] $end
+$var wire 1 B paddr [3] $end
+$var wire 1 C paddr [2] $end
+$var wire 1 D paddr [1] $end
+$var wire 1 E paddr [0] $end
+$var wire 1 F pwrite $end
+$var wire 1 G psel $end
+$var wire 1 H penable $end
+$var wire 1 I pwdata [31] $end
+$var wire 1 J pwdata [30] $end
+$var wire 1 K pwdata [29] $end
+$var wire 1 L pwdata [28] $end
+$var wire 1 M pwdata [27] $end
+$var wire 1 N pwdata [26] $end
+$var wire 1 O pwdata [25] $end
+$var wire 1 P pwdata [24] $end
+$var wire 1 Q pwdata [23] $end
+$var wire 1 R pwdata [22] $end
+$var wire 1 S pwdata [21] $end
+$var wire 1 T pwdata [20] $end
+$var wire 1 U pwdata [19] $end
+$var wire 1 V pwdata [18] $end
+$var wire 1 W pwdata [17] $end
+$var wire 1 X pwdata [16] $end
+$var wire 1 Y pwdata [15] $end
+$var wire 1 Z pwdata [14] $end
+$var wire 1 [ pwdata [13] $end
+$var wire 1 \ pwdata [12] $end
+$var wire 1 ] pwdata [11] $end
+$var wire 1 ^ pwdata [10] $end
+$var wire 1 _ pwdata [9] $end
+$var wire 1 ` pwdata [8] $end
+$var wire 1 a pwdata [7] $end
+$var wire 1 b pwdata [6] $end
+$var wire 1 c pwdata [5] $end
+$var wire 1 d pwdata [4] $end
+$var wire 1 e pwdata [3] $end
+$var wire 1 f pwdata [2] $end
+$var wire 1 g pwdata [1] $end
+$var wire 1 h pwdata [0] $end
+$var wire 1 i pready $end
+$var wire 1 j prdata [31] $end
+$var wire 1 k prdata [30] $end
+$var wire 1 l prdata [29] $end
+$var wire 1 m prdata [28] $end
+$var wire 1 n prdata [27] $end
+$var wire 1 o prdata [26] $end
+$var wire 1 p prdata [25] $end
+$var wire 1 q prdata [24] $end
+$var wire 1 r prdata [23] $end
+$var wire 1 s prdata [22] $end
+$var wire 1 t prdata [21] $end
+$var wire 1 u prdata [20] $end
+$var wire 1 v prdata [19] $end
+$var wire 1 w prdata [18] $end
+$var wire 1 x prdata [17] $end
+$var wire 1 y prdata [16] $end
+$var wire 1 z prdata [15] $end
+$var wire 1 { prdata [14] $end
+$var wire 1 | prdata [13] $end
+$var wire 1 } prdata [12] $end
+$var wire 1 ~ prdata [11] $end
+$var wire 1 !! prdata [10] $end
+$var wire 1 "! prdata [9] $end
+$var wire 1 #! prdata [8] $end
+$var wire 1 $! prdata [7] $end
+$var wire 1 %! prdata [6] $end
+$var wire 1 &! prdata [5] $end
+$var wire 1 '! prdata [4] $end
+$var wire 1 (! prdata [3] $end
+$var wire 1 )! prdata [2] $end
+$var wire 1 *! prdata [1] $end
+$var wire 1 +! prdata [0] $end
+$var wire 1 ,! pslverr $end
+$var wire 1 -! md_rx_valid $end
+$var wire 1 .! md_rx_data [31] $end
+$var wire 1 /! md_rx_data [30] $end
+$var wire 1 0! md_rx_data [29] $end
+$var wire 1 1! md_rx_data [28] $end
+$var wire 1 2! md_rx_data [27] $end
+$var wire 1 3! md_rx_data [26] $end
+$var wire 1 4! md_rx_data [25] $end
+$var wire 1 5! md_rx_data [24] $end
+$var wire 1 6! md_rx_data [23] $end
+$var wire 1 7! md_rx_data [22] $end
+$var wire 1 8! md_rx_data [21] $end
+$var wire 1 9! md_rx_data [20] $end
+$var wire 1 :! md_rx_data [19] $end
+$var wire 1 ;! md_rx_data [18] $end
+$var wire 1 <! md_rx_data [17] $end
+$var wire 1 =! md_rx_data [16] $end
+$var wire 1 >! md_rx_data [15] $end
+$var wire 1 ?! md_rx_data [14] $end
+$var wire 1 @! md_rx_data [13] $end
+$var wire 1 A! md_rx_data [12] $end
+$var wire 1 B! md_rx_data [11] $end
+$var wire 1 C! md_rx_data [10] $end
+$var wire 1 D! md_rx_data [9] $end
+$var wire 1 E! md_rx_data [8] $end
+$var wire 1 F! md_rx_data [7] $end
+$var wire 1 G! md_rx_data [6] $end
+$var wire 1 H! md_rx_data [5] $end
+$var wire 1 I! md_rx_data [4] $end
+$var wire 1 J! md_rx_data [3] $end
+$var wire 1 K! md_rx_data [2] $end
+$var wire 1 L! md_rx_data [1] $end
+$var wire 1 M! md_rx_data [0] $end
+$var wire 1 N! md_rx_offset [1] $end
+$var wire 1 O! md_rx_offset [0] $end
+$var wire 1 P! md_rx_size [2] $end
+$var wire 1 Q! md_rx_size [1] $end
+$var wire 1 R! md_rx_size [0] $end
+$var wire 1 S! md_rx_ready $end
+$var wire 1 T! md_rx_err $end
+$var wire 1 U! md_tx_valid $end
+$var wire 1 V! md_tx_data [31] $end
+$var wire 1 W! md_tx_data [30] $end
+$var wire 1 X! md_tx_data [29] $end
+$var wire 1 Y! md_tx_data [28] $end
+$var wire 1 Z! md_tx_data [27] $end
+$var wire 1 [! md_tx_data [26] $end
+$var wire 1 \! md_tx_data [25] $end
+$var wire 1 ]! md_tx_data [24] $end
+$var wire 1 ^! md_tx_data [23] $end
+$var wire 1 _! md_tx_data [22] $end
+$var wire 1 `! md_tx_data [21] $end
+$var wire 1 a! md_tx_data [20] $end
+$var wire 1 b! md_tx_data [19] $end
+$var wire 1 c! md_tx_data [18] $end
+$var wire 1 d! md_tx_data [17] $end
+$var wire 1 e! md_tx_data [16] $end
+$var wire 1 f! md_tx_data [15] $end
+$var wire 1 g! md_tx_data [14] $end
+$var wire 1 h! md_tx_data [13] $end
+$var wire 1 i! md_tx_data [12] $end
+$var wire 1 j! md_tx_data [11] $end
+$var wire 1 k! md_tx_data [10] $end
+$var wire 1 l! md_tx_data [9] $end
+$var wire 1 m! md_tx_data [8] $end
+$var wire 1 n! md_tx_data [7] $end
+$var wire 1 o! md_tx_data [6] $end
+$var wire 1 p! md_tx_data [5] $end
+$var wire 1 q! md_tx_data [4] $end
+$var wire 1 r! md_tx_data [3] $end
+$var wire 1 s! md_tx_data [2] $end
+$var wire 1 t! md_tx_data [1] $end
+$var wire 1 u! md_tx_data [0] $end
+$var wire 1 v! md_tx_offset [1] $end
+$var wire 1 w! md_tx_offset [0] $end
+$var wire 1 x! md_tx_size [2] $end
+$var wire 1 y! md_tx_size [1] $end
+$var wire 1 z! md_tx_size [0] $end
+$var wire 1 {! md_tx_ready $end
+$var wire 1 |! md_tx_err $end
+$var wire 1 }! irq $end
 
 $scope module core $end
-$var parameter 32 t! APB_ADDR_WIDTH $end
-$var parameter 32 u! ALGN_DATA_WIDTH $end
-$var parameter 32 v! FIFO_DEPTH $end
-$var parameter 32 w! CDC_RX_TO_REG $end
-$var parameter 32 x! CDC_REG_TO_TX $end
-$var parameter 32 y! STATUS_CNT_DROP_WIDTH $end
-$var parameter 32 z! APB_DATA_WIDTH $end
-$var parameter 32 {! ALGN_OFFSET_WIDTH $end
-$var parameter 32 |! ALGN_SIZE_WIDTH $end
-$var parameter 32 }! FIFO_WIDTH $end
-$var parameter 32 ~! FIFO_LVL_WIDTH $end
-$var wire 1 * pclk $end
-$var wire 1 + preset_n $end
-$var wire 1 , paddr [15] $end
-$var wire 1 - paddr [14] $end
-$var wire 1 . paddr [13] $end
-$var wire 1 / paddr [12] $end
-$var wire 1 0 paddr [11] $end
-$var wire 1 1 paddr [10] $end
-$var wire 1 2 paddr [9] $end
-$var wire 1 3 paddr [8] $end
-$var wire 1 4 paddr [7] $end
-$var wire 1 5 paddr [6] $end
-$var wire 1 6 paddr [5] $end
-$var wire 1 7 paddr [4] $end
-$var wire 1 8 paddr [3] $end
-$var wire 1 9 paddr [2] $end
-$var wire 1 : paddr [1] $end
-$var wire 1 ; paddr [0] $end
-$var wire 1 < pwrite $end
-$var wire 1 = psel $end
-$var wire 1 > penable $end
-$var wire 1 ? pwdata [31] $end
-$var wire 1 @ pwdata [30] $end
-$var wire 1 A pwdata [29] $end
-$var wire 1 B pwdata [28] $end
-$var wire 1 C pwdata [27] $end
-$var wire 1 D pwdata [26] $end
-$var wire 1 E pwdata [25] $end
-$var wire 1 F pwdata [24] $end
-$var wire 1 G pwdata [23] $end
-$var wire 1 H pwdata [22] $end
-$var wire 1 I pwdata [21] $end
-$var wire 1 J pwdata [20] $end
-$var wire 1 K pwdata [19] $end
-$var wire 1 L pwdata [18] $end
-$var wire 1 M pwdata [17] $end
-$var wire 1 N pwdata [16] $end
-$var wire 1 O pwdata [15] $end
-$var wire 1 P pwdata [14] $end
-$var wire 1 Q pwdata [13] $end
-$var wire 1 R pwdata [12] $end
-$var wire 1 S pwdata [11] $end
-$var wire 1 T pwdata [10] $end
-$var wire 1 U pwdata [9] $end
-$var wire 1 V pwdata [8] $end
-$var wire 1 W pwdata [7] $end
-$var wire 1 X pwdata [6] $end
-$var wire 1 Y pwdata [5] $end
-$var wire 1 Z pwdata [4] $end
-$var wire 1 [ pwdata [3] $end
-$var wire 1 \ pwdata [2] $end
-$var wire 1 ] pwdata [1] $end
-$var wire 1 ^ pwdata [0] $end
-$var wire 1 _ pready $end
-$var wire 1 ` prdata [31] $end
-$var wire 1 a prdata [30] $end
-$var wire 1 b prdata [29] $end
-$var wire 1 c prdata [28] $end
-$var wire 1 d prdata [27] $end
-$var wire 1 e prdata [26] $end
-$var wire 1 f prdata [25] $end
-$var wire 1 g prdata [24] $end
-$var wire 1 h prdata [23] $end
-$var wire 1 i prdata [22] $end
-$var wire 1 j prdata [21] $end
-$var wire 1 k prdata [20] $end
-$var wire 1 l prdata [19] $end
-$var wire 1 m prdata [18] $end
-$var wire 1 n prdata [17] $end
-$var wire 1 o prdata [16] $end
-$var wire 1 p prdata [15] $end
-$var wire 1 q prdata [14] $end
-$var wire 1 r prdata [13] $end
-$var wire 1 s prdata [12] $end
-$var wire 1 t prdata [11] $end
-$var wire 1 u prdata [10] $end
-$var wire 1 v prdata [9] $end
-$var wire 1 w prdata [8] $end
-$var wire 1 x prdata [7] $end
-$var wire 1 y prdata [6] $end
-$var wire 1 z prdata [5] $end
-$var wire 1 { prdata [4] $end
-$var wire 1 | prdata [3] $end
-$var wire 1 } prdata [2] $end
-$var wire 1 ~ prdata [1] $end
-$var wire 1 !! prdata [0] $end
-$var wire 1 "! pslverr $end
-$var wire 1 * md_rx_clk $end
-$var wire 1 #! md_rx_valid $end
-$var wire 1 $! md_rx_data [31] $end
-$var wire 1 %! md_rx_data [30] $end
-$var wire 1 &! md_rx_data [29] $end
-$var wire 1 '! md_rx_data [28] $end
-$var wire 1 (! md_rx_data [27] $end
-$var wire 1 )! md_rx_data [26] $end
-$var wire 1 *! md_rx_data [25] $end
-$var wire 1 +! md_rx_data [24] $end
-$var wire 1 ,! md_rx_data [23] $end
-$var wire 1 -! md_rx_data [22] $end
-$var wire 1 .! md_rx_data [21] $end
-$var wire 1 /! md_rx_data [20] $end
-$var wire 1 0! md_rx_data [19] $end
-$var wire 1 1! md_rx_data [18] $end
-$var wire 1 2! md_rx_data [17] $end
-$var wire 1 3! md_rx_data [16] $end
-$var wire 1 4! md_rx_data [15] $end
-$var wire 1 5! md_rx_data [14] $end
-$var wire 1 6! md_rx_data [13] $end
-$var wire 1 7! md_rx_data [12] $end
-$var wire 1 8! md_rx_data [11] $end
-$var wire 1 9! md_rx_data [10] $end
-$var wire 1 :! md_rx_data [9] $end
-$var wire 1 ;! md_rx_data [8] $end
-$var wire 1 <! md_rx_data [7] $end
-$var wire 1 =! md_rx_data [6] $end
-$var wire 1 >! md_rx_data [5] $end
-$var wire 1 ?! md_rx_data [4] $end
-$var wire 1 @! md_rx_data [3] $end
-$var wire 1 A! md_rx_data [2] $end
-$var wire 1 B! md_rx_data [1] $end
-$var wire 1 C! md_rx_data [0] $end
-$var wire 1 D! md_rx_offset [1] $end
-$var wire 1 E! md_rx_offset [0] $end
-$var wire 1 F! md_rx_size [2] $end
-$var wire 1 G! md_rx_size [1] $end
-$var wire 1 H! md_rx_size [0] $end
-$var wire 1 I! md_rx_ready $end
-$var wire 1 J! md_rx_err $end
-$var wire 1 * md_tx_clk $end
-$var wire 1 K! md_tx_valid $end
-$var wire 1 L! md_tx_data [31] $end
-$var wire 1 M! md_tx_data [30] $end
-$var wire 1 N! md_tx_data [29] $end
-$var wire 1 O! md_tx_data [28] $end
-$var wire 1 P! md_tx_data [27] $end
-$var wire 1 Q! md_tx_data [26] $end
-$var wire 1 R! md_tx_data [25] $end
-$var wire 1 S! md_tx_data [24] $end
-$var wire 1 T! md_tx_data [23] $end
-$var wire 1 U! md_tx_data [22] $end
-$var wire 1 V! md_tx_data [21] $end
-$var wire 1 W! md_tx_data [20] $end
-$var wire 1 X! md_tx_data [19] $end
-$var wire 1 Y! md_tx_data [18] $end
-$var wire 1 Z! md_tx_data [17] $end
-$var wire 1 [! md_tx_data [16] $end
-$var wire 1 \! md_tx_data [15] $end
-$var wire 1 ]! md_tx_data [14] $end
-$var wire 1 ^! md_tx_data [13] $end
-$var wire 1 _! md_tx_data [12] $end
-$var wire 1 `! md_tx_data [11] $end
-$var wire 1 a! md_tx_data [10] $end
-$var wire 1 b! md_tx_data [9] $end
-$var wire 1 c! md_tx_data [8] $end
-$var wire 1 d! md_tx_data [7] $end
-$var wire 1 e! md_tx_data [6] $end
-$var wire 1 f! md_tx_data [5] $end
-$var wire 1 g! md_tx_data [4] $end
-$var wire 1 h! md_tx_data [3] $end
-$var wire 1 i! md_tx_data [2] $end
-$var wire 1 j! md_tx_data [1] $end
-$var wire 1 k! md_tx_data [0] $end
-$var wire 1 l! md_tx_offset [1] $end
-$var wire 1 m! md_tx_offset [0] $end
-$var wire 1 n! md_tx_size [2] $end
-$var wire 1 o! md_tx_size [1] $end
-$var wire 1 p! md_tx_size [0] $end
-$var wire 1 q! md_tx_ready $end
-$var wire 1 r! md_tx_err $end
-$var wire 1 s! irq $end
-$var wire 1 !" rx_ctrl_2_regs_status_cnt_drop [7] $end
-$var wire 1 "" rx_ctrl_2_regs_status_cnt_drop [6] $end
-$var wire 1 #" rx_ctrl_2_regs_status_cnt_drop [5] $end
-$var wire 1 $" rx_ctrl_2_regs_status_cnt_drop [4] $end
-$var wire 1 %" rx_ctrl_2_regs_status_cnt_drop [3] $end
-$var wire 1 &" rx_ctrl_2_regs_status_cnt_drop [2] $end
-$var wire 1 '" rx_ctrl_2_regs_status_cnt_drop [1] $end
-$var wire 1 (" rx_ctrl_2_regs_status_cnt_drop [0] $end
-$var wire 1 )" regs_2_rx_ctrl_ctrl_clr $end
-$var wire 1 *" rx_ctrl_2_rx_fifo_push_valid $end
-$var wire 1 +" rx_ctrl_2_rx_fifo_push_data [36] $end
-$var wire 1 ," rx_ctrl_2_rx_fifo_push_data [35] $end
-$var wire 1 -" rx_ctrl_2_rx_fifo_push_data [34] $end
-$var wire 1 ." rx_ctrl_2_rx_fifo_push_data [33] $end
-$var wire 1 /" rx_ctrl_2_rx_fifo_push_data [32] $end
-$var wire 1 0" rx_ctrl_2_rx_fifo_push_data [31] $end
-$var wire 1 1" rx_ctrl_2_rx_fifo_push_data [30] $end
-$var wire 1 2" rx_ctrl_2_rx_fifo_push_data [29] $end
-$var wire 1 3" rx_ctrl_2_rx_fifo_push_data [28] $end
-$var wire 1 4" rx_ctrl_2_rx_fifo_push_data [27] $end
-$var wire 1 5" rx_ctrl_2_rx_fifo_push_data [26] $end
-$var wire 1 6" rx_ctrl_2_rx_fifo_push_data [25] $end
-$var wire 1 7" rx_ctrl_2_rx_fifo_push_data [24] $end
-$var wire 1 8" rx_ctrl_2_rx_fifo_push_data [23] $end
-$var wire 1 9" rx_ctrl_2_rx_fifo_push_data [22] $end
-$var wire 1 :" rx_ctrl_2_rx_fifo_push_data [21] $end
-$var wire 1 ;" rx_ctrl_2_rx_fifo_push_data [20] $end
-$var wire 1 <" rx_ctrl_2_rx_fifo_push_data [19] $end
-$var wire 1 =" rx_ctrl_2_rx_fifo_push_data [18] $end
-$var wire 1 >" rx_ctrl_2_rx_fifo_push_data [17] $end
-$var wire 1 ?" rx_ctrl_2_rx_fifo_push_data [16] $end
-$var wire 1 @" rx_ctrl_2_rx_fifo_push_data [15] $end
-$var wire 1 A" rx_ctrl_2_rx_fifo_push_data [14] $end
-$var wire 1 B" rx_ctrl_2_rx_fifo_push_data [13] $end
-$var wire 1 C" rx_ctrl_2_rx_fifo_push_data [12] $end
-$var wire 1 D" rx_ctrl_2_rx_fifo_push_data [11] $end
-$var wire 1 E" rx_ctrl_2_rx_fifo_push_data [10] $end
-$var wire 1 F" rx_ctrl_2_rx_fifo_push_data [9] $end
-$var wire 1 G" rx_ctrl_2_rx_fifo_push_data [8] $end
-$var wire 1 H" rx_ctrl_2_rx_fifo_push_data [7] $end
-$var wire 1 I" rx_ctrl_2_rx_fifo_push_data [6] $end
-$var wire 1 J" rx_ctrl_2_rx_fifo_push_data [5] $end
-$var wire 1 K" rx_ctrl_2_rx_fifo_push_data [4] $end
-$var wire 1 L" rx_ctrl_2_rx_fifo_push_data [3] $end
-$var wire 1 M" rx_ctrl_2_rx_fifo_push_data [2] $end
-$var wire 1 N" rx_ctrl_2_rx_fifo_push_data [1] $end
-$var wire 1 O" rx_ctrl_2_rx_fifo_push_data [0] $end
-$var wire 1 P" rx_fifo_2_rx_ctrl_push_ready $end
-$var wire 1 Q" rx_fifo_2_rx_ctrl_push_full $end
-$var wire 1 R" rx_fifo_2_regs_fifo_full $end
-$var wire 1 S" rx_fifo_2_regs_fifo_empty $end
-$var wire 1 T" rx_fifo_2_regs_fifo_lvl [3] $end
-$var wire 1 U" rx_fifo_2_regs_fifo_lvl [2] $end
-$var wire 1 V" rx_fifo_2_regs_fifo_lvl [1] $end
-$var wire 1 W" rx_fifo_2_regs_fifo_lvl [0] $end
-$var wire 1 X" tx_fifo_2_regs_fifo_lvl [3] $end
-$var wire 1 Y" tx_fifo_2_regs_fifo_lvl [2] $end
-$var wire 1 Z" tx_fifo_2_regs_fifo_lvl [1] $end
-$var wire 1 [" tx_fifo_2_regs_fifo_lvl [0] $end
-$var wire 1 \" tx_fifo_2_regs_fifo_empty $end
-$var wire 1 ]" tx_fifo_2_regs_fifo_full $end
-$var wire 1 ^" tx_fifo_2_tx_ctrl_pop_valid $end
-$var wire 1 _" tx_fifo_2_tx_ctrl_pop_data [36] $end
-$var wire 1 `" tx_fifo_2_tx_ctrl_pop_data [35] $end
-$var wire 1 a" tx_fifo_2_tx_ctrl_pop_data [34] $end
-$var wire 1 b" tx_fifo_2_tx_ctrl_pop_data [33] $end
-$var wire 1 c" tx_fifo_2_tx_ctrl_pop_data [32] $end
-$var wire 1 d" tx_fifo_2_tx_ctrl_pop_data [31] $end
-$var wire 1 e" tx_fifo_2_tx_ctrl_pop_data [30] $end
-$var wire 1 f" tx_fifo_2_tx_ctrl_pop_data [29] $end
-$var wire 1 g" tx_fifo_2_tx_ctrl_pop_data [28] $end
-$var wire 1 h" tx_fifo_2_tx_ctrl_pop_data [27] $end
-$var wire 1 i" tx_fifo_2_tx_ctrl_pop_data [26] $end
-$var wire 1 j" tx_fifo_2_tx_ctrl_pop_data [25] $end
-$var wire 1 k" tx_fifo_2_tx_ctrl_pop_data [24] $end
-$var wire 1 l" tx_fifo_2_tx_ctrl_pop_data [23] $end
-$var wire 1 m" tx_fifo_2_tx_ctrl_pop_data [22] $end
-$var wire 1 n" tx_fifo_2_tx_ctrl_pop_data [21] $end
-$var wire 1 o" tx_fifo_2_tx_ctrl_pop_data [20] $end
-$var wire 1 p" tx_fifo_2_tx_ctrl_pop_data [19] $end
-$var wire 1 q" tx_fifo_2_tx_ctrl_pop_data [18] $end
-$var wire 1 r" tx_fifo_2_tx_ctrl_pop_data [17] $end
-$var wire 1 s" tx_fifo_2_tx_ctrl_pop_data [16] $end
-$var wire 1 t" tx_fifo_2_tx_ctrl_pop_data [15] $end
-$var wire 1 u" tx_fifo_2_tx_ctrl_pop_data [14] $end
-$var wire 1 v" tx_fifo_2_tx_ctrl_pop_data [13] $end
-$var wire 1 w" tx_fifo_2_tx_ctrl_pop_data [12] $end
-$var wire 1 x" tx_fifo_2_tx_ctrl_pop_data [11] $end
-$var wire 1 y" tx_fifo_2_tx_ctrl_pop_data [10] $end
-$var wire 1 z" tx_fifo_2_tx_ctrl_pop_data [9] $end
-$var wire 1 {" tx_fifo_2_tx_ctrl_pop_data [8] $end
-$var wire 1 |" tx_fifo_2_tx_ctrl_pop_data [7] $end
-$var wire 1 }" tx_fifo_2_tx_ctrl_pop_data [6] $end
-$var wire 1 ~" tx_fifo_2_tx_ctrl_pop_data [5] $end
-$var wire 1 !# tx_fifo_2_tx_ctrl_pop_data [4] $end
-$var wire 1 "# tx_fifo_2_tx_ctrl_pop_data [3] $end
-$var wire 1 ## tx_fifo_2_tx_ctrl_pop_data [2] $end
-$var wire 1 $# tx_fifo_2_tx_ctrl_pop_data [1] $end
-$var wire 1 %# tx_fifo_2_tx_ctrl_pop_data [0] $end
-$var wire 1 &# tx_fifo_2_tx_ctrl_pop_ready $end
-$var wire 1 '# rx_fifo_2_ctrl_pop_valid $end
-$var wire 1 (# rx_fifo_2_ctrl_pop_data [36] $end
-$var wire 1 )# rx_fifo_2_ctrl_pop_data [35] $end
-$var wire 1 *# rx_fifo_2_ctrl_pop_data [34] $end
-$var wire 1 +# rx_fifo_2_ctrl_pop_data [33] $end
-$var wire 1 ,# rx_fifo_2_ctrl_pop_data [32] $end
-$var wire 1 -# rx_fifo_2_ctrl_pop_data [31] $end
-$var wire 1 .# rx_fifo_2_ctrl_pop_data [30] $end
-$var wire 1 /# rx_fifo_2_ctrl_pop_data [29] $end
-$var wire 1 0# rx_fifo_2_ctrl_pop_data [28] $end
-$var wire 1 1# rx_fifo_2_ctrl_pop_data [27] $end
-$var wire 1 2# rx_fifo_2_ctrl_pop_data [26] $end
-$var wire 1 3# rx_fifo_2_ctrl_pop_data [25] $end
-$var wire 1 4# rx_fifo_2_ctrl_pop_data [24] $end
-$var wire 1 5# rx_fifo_2_ctrl_pop_data [23] $end
-$var wire 1 6# rx_fifo_2_ctrl_pop_data [22] $end
-$var wire 1 7# rx_fifo_2_ctrl_pop_data [21] $end
-$var wire 1 8# rx_fifo_2_ctrl_pop_data [20] $end
-$var wire 1 9# rx_fifo_2_ctrl_pop_data [19] $end
-$var wire 1 :# rx_fifo_2_ctrl_pop_data [18] $end
-$var wire 1 ;# rx_fifo_2_ctrl_pop_data [17] $end
-$var wire 1 <# rx_fifo_2_ctrl_pop_data [16] $end
-$var wire 1 =# rx_fifo_2_ctrl_pop_data [15] $end
-$var wire 1 ># rx_fifo_2_ctrl_pop_data [14] $end
-$var wire 1 ?# rx_fifo_2_ctrl_pop_data [13] $end
-$var wire 1 @# rx_fifo_2_ctrl_pop_data [12] $end
-$var wire 1 A# rx_fifo_2_ctrl_pop_data [11] $end
-$var wire 1 B# rx_fifo_2_ctrl_pop_data [10] $end
-$var wire 1 C# rx_fifo_2_ctrl_pop_data [9] $end
-$var wire 1 D# rx_fifo_2_ctrl_pop_data [8] $end
-$var wire 1 E# rx_fifo_2_ctrl_pop_data [7] $end
-$var wire 1 F# rx_fifo_2_ctrl_pop_data [6] $end
-$var wire 1 G# rx_fifo_2_ctrl_pop_data [5] $end
-$var wire 1 H# rx_fifo_2_ctrl_pop_data [4] $end
-$var wire 1 I# rx_fifo_2_ctrl_pop_data [3] $end
-$var wire 1 J# rx_fifo_2_ctrl_pop_data [2] $end
-$var wire 1 K# rx_fifo_2_ctrl_pop_data [1] $end
-$var wire 1 L# rx_fifo_2_ctrl_pop_data [0] $end
-$var wire 1 M# rx_fifo_2_ctrl_pop_ready $end
-$var wire 1 N# ctrl_2_tx_fifo_push_valid $end
-$var wire 1 O# ctrl_2_tx_fifo_push_data [36] $end
-$var wire 1 P# ctrl_2_tx_fifo_push_data [35] $end
-$var wire 1 Q# ctrl_2_tx_fifo_push_data [34] $end
-$var wire 1 R# ctrl_2_tx_fifo_push_data [33] $end
-$var wire 1 S# ctrl_2_tx_fifo_push_data [32] $end
-$var wire 1 T# ctrl_2_tx_fifo_push_data [31] $end
-$var wire 1 U# ctrl_2_tx_fifo_push_data [30] $end
-$var wire 1 V# ctrl_2_tx_fifo_push_data [29] $end
-$var wire 1 W# ctrl_2_tx_fifo_push_data [28] $end
-$var wire 1 X# ctrl_2_tx_fifo_push_data [27] $end
-$var wire 1 Y# ctrl_2_tx_fifo_push_data [26] $end
-$var wire 1 Z# ctrl_2_tx_fifo_push_data [25] $end
-$var wire 1 [# ctrl_2_tx_fifo_push_data [24] $end
-$var wire 1 \# ctrl_2_tx_fifo_push_data [23] $end
-$var wire 1 ]# ctrl_2_tx_fifo_push_data [22] $end
-$var wire 1 ^# ctrl_2_tx_fifo_push_data [21] $end
-$var wire 1 _# ctrl_2_tx_fifo_push_data [20] $end
-$var wire 1 `# ctrl_2_tx_fifo_push_data [19] $end
-$var wire 1 a# ctrl_2_tx_fifo_push_data [18] $end
-$var wire 1 b# ctrl_2_tx_fifo_push_data [17] $end
-$var wire 1 c# ctrl_2_tx_fifo_push_data [16] $end
-$var wire 1 d# ctrl_2_tx_fifo_push_data [15] $end
-$var wire 1 e# ctrl_2_tx_fifo_push_data [14] $end
-$var wire 1 f# ctrl_2_tx_fifo_push_data [13] $end
-$var wire 1 g# ctrl_2_tx_fifo_push_data [12] $end
-$var wire 1 h# ctrl_2_tx_fifo_push_data [11] $end
-$var wire 1 i# ctrl_2_tx_fifo_push_data [10] $end
-$var wire 1 j# ctrl_2_tx_fifo_push_data [9] $end
-$var wire 1 k# ctrl_2_tx_fifo_push_data [8] $end
-$var wire 1 l# ctrl_2_tx_fifo_push_data [7] $end
-$var wire 1 m# ctrl_2_tx_fifo_push_data [6] $end
-$var wire 1 n# ctrl_2_tx_fifo_push_data [5] $end
-$var wire 1 o# ctrl_2_tx_fifo_push_data [4] $end
-$var wire 1 p# ctrl_2_tx_fifo_push_data [3] $end
-$var wire 1 q# ctrl_2_tx_fifo_push_data [2] $end
-$var wire 1 r# ctrl_2_tx_fifo_push_data [1] $end
-$var wire 1 s# ctrl_2_tx_fifo_push_data [0] $end
-$var wire 1 t# ctrl_2_tx_fifo_push_ready $end
-$var wire 1 u# regs_2_ctrl_ctrl_offset [1] $end
-$var wire 1 v# regs_2_ctrl_ctrl_offset [0] $end
-$var wire 1 w# regs_2_ctrl_ctrl_size [2] $end
-$var wire 1 x# regs_2_ctrl_ctrl_size [1] $end
-$var wire 1 y# regs_2_ctrl_ctrl_size [0] $end
+$var parameter 32 ~! APB_ADDR_WIDTH $end
+$var parameter 32 !" ALGN_DATA_WIDTH $end
+$var parameter 32 "" FIFO_DEPTH $end
+$var parameter 32 #" CDC_RX_TO_REG $end
+$var parameter 32 $" CDC_REG_TO_TX $end
+$var parameter 32 %" STATUS_CNT_DROP_WIDTH $end
+$var parameter 32 &" APB_DATA_WIDTH $end
+$var parameter 32 '" ALGN_OFFSET_WIDTH $end
+$var parameter 32 (" ALGN_SIZE_WIDTH $end
+$var parameter 32 )" FIFO_WIDTH $end
+$var parameter 32 *" FIFO_LVL_WIDTH $end
+$var wire 1 4 pclk $end
+$var wire 1 5 preset_n $end
+$var wire 1 6 paddr [15] $end
+$var wire 1 7 paddr [14] $end
+$var wire 1 8 paddr [13] $end
+$var wire 1 9 paddr [12] $end
+$var wire 1 : paddr [11] $end
+$var wire 1 ; paddr [10] $end
+$var wire 1 < paddr [9] $end
+$var wire 1 = paddr [8] $end
+$var wire 1 > paddr [7] $end
+$var wire 1 ? paddr [6] $end
+$var wire 1 @ paddr [5] $end
+$var wire 1 A paddr [4] $end
+$var wire 1 B paddr [3] $end
+$var wire 1 C paddr [2] $end
+$var wire 1 D paddr [1] $end
+$var wire 1 E paddr [0] $end
+$var wire 1 F pwrite $end
+$var wire 1 G psel $end
+$var wire 1 H penable $end
+$var wire 1 I pwdata [31] $end
+$var wire 1 J pwdata [30] $end
+$var wire 1 K pwdata [29] $end
+$var wire 1 L pwdata [28] $end
+$var wire 1 M pwdata [27] $end
+$var wire 1 N pwdata [26] $end
+$var wire 1 O pwdata [25] $end
+$var wire 1 P pwdata [24] $end
+$var wire 1 Q pwdata [23] $end
+$var wire 1 R pwdata [22] $end
+$var wire 1 S pwdata [21] $end
+$var wire 1 T pwdata [20] $end
+$var wire 1 U pwdata [19] $end
+$var wire 1 V pwdata [18] $end
+$var wire 1 W pwdata [17] $end
+$var wire 1 X pwdata [16] $end
+$var wire 1 Y pwdata [15] $end
+$var wire 1 Z pwdata [14] $end
+$var wire 1 [ pwdata [13] $end
+$var wire 1 \ pwdata [12] $end
+$var wire 1 ] pwdata [11] $end
+$var wire 1 ^ pwdata [10] $end
+$var wire 1 _ pwdata [9] $end
+$var wire 1 ` pwdata [8] $end
+$var wire 1 a pwdata [7] $end
+$var wire 1 b pwdata [6] $end
+$var wire 1 c pwdata [5] $end
+$var wire 1 d pwdata [4] $end
+$var wire 1 e pwdata [3] $end
+$var wire 1 f pwdata [2] $end
+$var wire 1 g pwdata [1] $end
+$var wire 1 h pwdata [0] $end
+$var wire 1 i pready $end
+$var wire 1 j prdata [31] $end
+$var wire 1 k prdata [30] $end
+$var wire 1 l prdata [29] $end
+$var wire 1 m prdata [28] $end
+$var wire 1 n prdata [27] $end
+$var wire 1 o prdata [26] $end
+$var wire 1 p prdata [25] $end
+$var wire 1 q prdata [24] $end
+$var wire 1 r prdata [23] $end
+$var wire 1 s prdata [22] $end
+$var wire 1 t prdata [21] $end
+$var wire 1 u prdata [20] $end
+$var wire 1 v prdata [19] $end
+$var wire 1 w prdata [18] $end
+$var wire 1 x prdata [17] $end
+$var wire 1 y prdata [16] $end
+$var wire 1 z prdata [15] $end
+$var wire 1 { prdata [14] $end
+$var wire 1 | prdata [13] $end
+$var wire 1 } prdata [12] $end
+$var wire 1 ~ prdata [11] $end
+$var wire 1 !! prdata [10] $end
+$var wire 1 "! prdata [9] $end
+$var wire 1 #! prdata [8] $end
+$var wire 1 $! prdata [7] $end
+$var wire 1 %! prdata [6] $end
+$var wire 1 &! prdata [5] $end
+$var wire 1 '! prdata [4] $end
+$var wire 1 (! prdata [3] $end
+$var wire 1 )! prdata [2] $end
+$var wire 1 *! prdata [1] $end
+$var wire 1 +! prdata [0] $end
+$var wire 1 ,! pslverr $end
+$var wire 1 4 md_rx_clk $end
+$var wire 1 -! md_rx_valid $end
+$var wire 1 .! md_rx_data [31] $end
+$var wire 1 /! md_rx_data [30] $end
+$var wire 1 0! md_rx_data [29] $end
+$var wire 1 1! md_rx_data [28] $end
+$var wire 1 2! md_rx_data [27] $end
+$var wire 1 3! md_rx_data [26] $end
+$var wire 1 4! md_rx_data [25] $end
+$var wire 1 5! md_rx_data [24] $end
+$var wire 1 6! md_rx_data [23] $end
+$var wire 1 7! md_rx_data [22] $end
+$var wire 1 8! md_rx_data [21] $end
+$var wire 1 9! md_rx_data [20] $end
+$var wire 1 :! md_rx_data [19] $end
+$var wire 1 ;! md_rx_data [18] $end
+$var wire 1 <! md_rx_data [17] $end
+$var wire 1 =! md_rx_data [16] $end
+$var wire 1 >! md_rx_data [15] $end
+$var wire 1 ?! md_rx_data [14] $end
+$var wire 1 @! md_rx_data [13] $end
+$var wire 1 A! md_rx_data [12] $end
+$var wire 1 B! md_rx_data [11] $end
+$var wire 1 C! md_rx_data [10] $end
+$var wire 1 D! md_rx_data [9] $end
+$var wire 1 E! md_rx_data [8] $end
+$var wire 1 F! md_rx_data [7] $end
+$var wire 1 G! md_rx_data [6] $end
+$var wire 1 H! md_rx_data [5] $end
+$var wire 1 I! md_rx_data [4] $end
+$var wire 1 J! md_rx_data [3] $end
+$var wire 1 K! md_rx_data [2] $end
+$var wire 1 L! md_rx_data [1] $end
+$var wire 1 M! md_rx_data [0] $end
+$var wire 1 N! md_rx_offset [1] $end
+$var wire 1 O! md_rx_offset [0] $end
+$var wire 1 P! md_rx_size [2] $end
+$var wire 1 Q! md_rx_size [1] $end
+$var wire 1 R! md_rx_size [0] $end
+$var wire 1 S! md_rx_ready $end
+$var wire 1 T! md_rx_err $end
+$var wire 1 4 md_tx_clk $end
+$var wire 1 U! md_tx_valid $end
+$var wire 1 V! md_tx_data [31] $end
+$var wire 1 W! md_tx_data [30] $end
+$var wire 1 X! md_tx_data [29] $end
+$var wire 1 Y! md_tx_data [28] $end
+$var wire 1 Z! md_tx_data [27] $end
+$var wire 1 [! md_tx_data [26] $end
+$var wire 1 \! md_tx_data [25] $end
+$var wire 1 ]! md_tx_data [24] $end
+$var wire 1 ^! md_tx_data [23] $end
+$var wire 1 _! md_tx_data [22] $end
+$var wire 1 `! md_tx_data [21] $end
+$var wire 1 a! md_tx_data [20] $end
+$var wire 1 b! md_tx_data [19] $end
+$var wire 1 c! md_tx_data [18] $end
+$var wire 1 d! md_tx_data [17] $end
+$var wire 1 e! md_tx_data [16] $end
+$var wire 1 f! md_tx_data [15] $end
+$var wire 1 g! md_tx_data [14] $end
+$var wire 1 h! md_tx_data [13] $end
+$var wire 1 i! md_tx_data [12] $end
+$var wire 1 j! md_tx_data [11] $end
+$var wire 1 k! md_tx_data [10] $end
+$var wire 1 l! md_tx_data [9] $end
+$var wire 1 m! md_tx_data [8] $end
+$var wire 1 n! md_tx_data [7] $end
+$var wire 1 o! md_tx_data [6] $end
+$var wire 1 p! md_tx_data [5] $end
+$var wire 1 q! md_tx_data [4] $end
+$var wire 1 r! md_tx_data [3] $end
+$var wire 1 s! md_tx_data [2] $end
+$var wire 1 t! md_tx_data [1] $end
+$var wire 1 u! md_tx_data [0] $end
+$var wire 1 v! md_tx_offset [1] $end
+$var wire 1 w! md_tx_offset [0] $end
+$var wire 1 x! md_tx_size [2] $end
+$var wire 1 y! md_tx_size [1] $end
+$var wire 1 z! md_tx_size [0] $end
+$var wire 1 {! md_tx_ready $end
+$var wire 1 |! md_tx_err $end
+$var wire 1 }! irq $end
+$var wire 1 +" rx_ctrl_2_regs_status_cnt_drop [7] $end
+$var wire 1 ," rx_ctrl_2_regs_status_cnt_drop [6] $end
+$var wire 1 -" rx_ctrl_2_regs_status_cnt_drop [5] $end
+$var wire 1 ." rx_ctrl_2_regs_status_cnt_drop [4] $end
+$var wire 1 /" rx_ctrl_2_regs_status_cnt_drop [3] $end
+$var wire 1 0" rx_ctrl_2_regs_status_cnt_drop [2] $end
+$var wire 1 1" rx_ctrl_2_regs_status_cnt_drop [1] $end
+$var wire 1 2" rx_ctrl_2_regs_status_cnt_drop [0] $end
+$var wire 1 3" regs_2_rx_ctrl_ctrl_clr $end
+$var wire 1 4" rx_ctrl_2_rx_fifo_push_valid $end
+$var wire 1 5" rx_ctrl_2_rx_fifo_push_data [36] $end
+$var wire 1 6" rx_ctrl_2_rx_fifo_push_data [35] $end
+$var wire 1 7" rx_ctrl_2_rx_fifo_push_data [34] $end
+$var wire 1 8" rx_ctrl_2_rx_fifo_push_data [33] $end
+$var wire 1 9" rx_ctrl_2_rx_fifo_push_data [32] $end
+$var wire 1 :" rx_ctrl_2_rx_fifo_push_data [31] $end
+$var wire 1 ;" rx_ctrl_2_rx_fifo_push_data [30] $end
+$var wire 1 <" rx_ctrl_2_rx_fifo_push_data [29] $end
+$var wire 1 =" rx_ctrl_2_rx_fifo_push_data [28] $end
+$var wire 1 >" rx_ctrl_2_rx_fifo_push_data [27] $end
+$var wire 1 ?" rx_ctrl_2_rx_fifo_push_data [26] $end
+$var wire 1 @" rx_ctrl_2_rx_fifo_push_data [25] $end
+$var wire 1 A" rx_ctrl_2_rx_fifo_push_data [24] $end
+$var wire 1 B" rx_ctrl_2_rx_fifo_push_data [23] $end
+$var wire 1 C" rx_ctrl_2_rx_fifo_push_data [22] $end
+$var wire 1 D" rx_ctrl_2_rx_fifo_push_data [21] $end
+$var wire 1 E" rx_ctrl_2_rx_fifo_push_data [20] $end
+$var wire 1 F" rx_ctrl_2_rx_fifo_push_data [19] $end
+$var wire 1 G" rx_ctrl_2_rx_fifo_push_data [18] $end
+$var wire 1 H" rx_ctrl_2_rx_fifo_push_data [17] $end
+$var wire 1 I" rx_ctrl_2_rx_fifo_push_data [16] $end
+$var wire 1 J" rx_ctrl_2_rx_fifo_push_data [15] $end
+$var wire 1 K" rx_ctrl_2_rx_fifo_push_data [14] $end
+$var wire 1 L" rx_ctrl_2_rx_fifo_push_data [13] $end
+$var wire 1 M" rx_ctrl_2_rx_fifo_push_data [12] $end
+$var wire 1 N" rx_ctrl_2_rx_fifo_push_data [11] $end
+$var wire 1 O" rx_ctrl_2_rx_fifo_push_data [10] $end
+$var wire 1 P" rx_ctrl_2_rx_fifo_push_data [9] $end
+$var wire 1 Q" rx_ctrl_2_rx_fifo_push_data [8] $end
+$var wire 1 R" rx_ctrl_2_rx_fifo_push_data [7] $end
+$var wire 1 S" rx_ctrl_2_rx_fifo_push_data [6] $end
+$var wire 1 T" rx_ctrl_2_rx_fifo_push_data [5] $end
+$var wire 1 U" rx_ctrl_2_rx_fifo_push_data [4] $end
+$var wire 1 V" rx_ctrl_2_rx_fifo_push_data [3] $end
+$var wire 1 W" rx_ctrl_2_rx_fifo_push_data [2] $end
+$var wire 1 X" rx_ctrl_2_rx_fifo_push_data [1] $end
+$var wire 1 Y" rx_ctrl_2_rx_fifo_push_data [0] $end
+$var wire 1 Z" rx_fifo_2_rx_ctrl_push_ready $end
+$var wire 1 [" rx_fifo_2_rx_ctrl_push_full $end
+$var wire 1 \" rx_fifo_2_regs_fifo_full $end
+$var wire 1 ]" rx_fifo_2_regs_fifo_empty $end
+$var wire 1 ^" rx_fifo_2_regs_fifo_lvl [3] $end
+$var wire 1 _" rx_fifo_2_regs_fifo_lvl [2] $end
+$var wire 1 `" rx_fifo_2_regs_fifo_lvl [1] $end
+$var wire 1 a" rx_fifo_2_regs_fifo_lvl [0] $end
+$var wire 1 b" tx_fifo_2_regs_fifo_lvl [3] $end
+$var wire 1 c" tx_fifo_2_regs_fifo_lvl [2] $end
+$var wire 1 d" tx_fifo_2_regs_fifo_lvl [1] $end
+$var wire 1 e" tx_fifo_2_regs_fifo_lvl [0] $end
+$var wire 1 f" tx_fifo_2_regs_fifo_empty $end
+$var wire 1 g" tx_fifo_2_regs_fifo_full $end
+$var wire 1 h" tx_fifo_2_tx_ctrl_pop_valid $end
+$var wire 1 i" tx_fifo_2_tx_ctrl_pop_data [36] $end
+$var wire 1 j" tx_fifo_2_tx_ctrl_pop_data [35] $end
+$var wire 1 k" tx_fifo_2_tx_ctrl_pop_data [34] $end
+$var wire 1 l" tx_fifo_2_tx_ctrl_pop_data [33] $end
+$var wire 1 m" tx_fifo_2_tx_ctrl_pop_data [32] $end
+$var wire 1 n" tx_fifo_2_tx_ctrl_pop_data [31] $end
+$var wire 1 o" tx_fifo_2_tx_ctrl_pop_data [30] $end
+$var wire 1 p" tx_fifo_2_tx_ctrl_pop_data [29] $end
+$var wire 1 q" tx_fifo_2_tx_ctrl_pop_data [28] $end
+$var wire 1 r" tx_fifo_2_tx_ctrl_pop_data [27] $end
+$var wire 1 s" tx_fifo_2_tx_ctrl_pop_data [26] $end
+$var wire 1 t" tx_fifo_2_tx_ctrl_pop_data [25] $end
+$var wire 1 u" tx_fifo_2_tx_ctrl_pop_data [24] $end
+$var wire 1 v" tx_fifo_2_tx_ctrl_pop_data [23] $end
+$var wire 1 w" tx_fifo_2_tx_ctrl_pop_data [22] $end
+$var wire 1 x" tx_fifo_2_tx_ctrl_pop_data [21] $end
+$var wire 1 y" tx_fifo_2_tx_ctrl_pop_data [20] $end
+$var wire 1 z" tx_fifo_2_tx_ctrl_pop_data [19] $end
+$var wire 1 {" tx_fifo_2_tx_ctrl_pop_data [18] $end
+$var wire 1 |" tx_fifo_2_tx_ctrl_pop_data [17] $end
+$var wire 1 }" tx_fifo_2_tx_ctrl_pop_data [16] $end
+$var wire 1 ~" tx_fifo_2_tx_ctrl_pop_data [15] $end
+$var wire 1 !# tx_fifo_2_tx_ctrl_pop_data [14] $end
+$var wire 1 "# tx_fifo_2_tx_ctrl_pop_data [13] $end
+$var wire 1 ## tx_fifo_2_tx_ctrl_pop_data [12] $end
+$var wire 1 $# tx_fifo_2_tx_ctrl_pop_data [11] $end
+$var wire 1 %# tx_fifo_2_tx_ctrl_pop_data [10] $end
+$var wire 1 &# tx_fifo_2_tx_ctrl_pop_data [9] $end
+$var wire 1 '# tx_fifo_2_tx_ctrl_pop_data [8] $end
+$var wire 1 (# tx_fifo_2_tx_ctrl_pop_data [7] $end
+$var wire 1 )# tx_fifo_2_tx_ctrl_pop_data [6] $end
+$var wire 1 *# tx_fifo_2_tx_ctrl_pop_data [5] $end
+$var wire 1 +# tx_fifo_2_tx_ctrl_pop_data [4] $end
+$var wire 1 ,# tx_fifo_2_tx_ctrl_pop_data [3] $end
+$var wire 1 -# tx_fifo_2_tx_ctrl_pop_data [2] $end
+$var wire 1 .# tx_fifo_2_tx_ctrl_pop_data [1] $end
+$var wire 1 /# tx_fifo_2_tx_ctrl_pop_data [0] $end
+$var wire 1 0# tx_fifo_2_tx_ctrl_pop_ready $end
+$var wire 1 1# rx_fifo_2_ctrl_pop_valid $end
+$var wire 1 2# rx_fifo_2_ctrl_pop_data [36] $end
+$var wire 1 3# rx_fifo_2_ctrl_pop_data [35] $end
+$var wire 1 4# rx_fifo_2_ctrl_pop_data [34] $end
+$var wire 1 5# rx_fifo_2_ctrl_pop_data [33] $end
+$var wire 1 6# rx_fifo_2_ctrl_pop_data [32] $end
+$var wire 1 7# rx_fifo_2_ctrl_pop_data [31] $end
+$var wire 1 8# rx_fifo_2_ctrl_pop_data [30] $end
+$var wire 1 9# rx_fifo_2_ctrl_pop_data [29] $end
+$var wire 1 :# rx_fifo_2_ctrl_pop_data [28] $end
+$var wire 1 ;# rx_fifo_2_ctrl_pop_data [27] $end
+$var wire 1 <# rx_fifo_2_ctrl_pop_data [26] $end
+$var wire 1 =# rx_fifo_2_ctrl_pop_data [25] $end
+$var wire 1 ># rx_fifo_2_ctrl_pop_data [24] $end
+$var wire 1 ?# rx_fifo_2_ctrl_pop_data [23] $end
+$var wire 1 @# rx_fifo_2_ctrl_pop_data [22] $end
+$var wire 1 A# rx_fifo_2_ctrl_pop_data [21] $end
+$var wire 1 B# rx_fifo_2_ctrl_pop_data [20] $end
+$var wire 1 C# rx_fifo_2_ctrl_pop_data [19] $end
+$var wire 1 D# rx_fifo_2_ctrl_pop_data [18] $end
+$var wire 1 E# rx_fifo_2_ctrl_pop_data [17] $end
+$var wire 1 F# rx_fifo_2_ctrl_pop_data [16] $end
+$var wire 1 G# rx_fifo_2_ctrl_pop_data [15] $end
+$var wire 1 H# rx_fifo_2_ctrl_pop_data [14] $end
+$var wire 1 I# rx_fifo_2_ctrl_pop_data [13] $end
+$var wire 1 J# rx_fifo_2_ctrl_pop_data [12] $end
+$var wire 1 K# rx_fifo_2_ctrl_pop_data [11] $end
+$var wire 1 L# rx_fifo_2_ctrl_pop_data [10] $end
+$var wire 1 M# rx_fifo_2_ctrl_pop_data [9] $end
+$var wire 1 N# rx_fifo_2_ctrl_pop_data [8] $end
+$var wire 1 O# rx_fifo_2_ctrl_pop_data [7] $end
+$var wire 1 P# rx_fifo_2_ctrl_pop_data [6] $end
+$var wire 1 Q# rx_fifo_2_ctrl_pop_data [5] $end
+$var wire 1 R# rx_fifo_2_ctrl_pop_data [4] $end
+$var wire 1 S# rx_fifo_2_ctrl_pop_data [3] $end
+$var wire 1 T# rx_fifo_2_ctrl_pop_data [2] $end
+$var wire 1 U# rx_fifo_2_ctrl_pop_data [1] $end
+$var wire 1 V# rx_fifo_2_ctrl_pop_data [0] $end
+$var wire 1 W# rx_fifo_2_ctrl_pop_ready $end
+$var wire 1 X# ctrl_2_tx_fifo_push_valid $end
+$var wire 1 Y# ctrl_2_tx_fifo_push_data [36] $end
+$var wire 1 Z# ctrl_2_tx_fifo_push_data [35] $end
+$var wire 1 [# ctrl_2_tx_fifo_push_data [34] $end
+$var wire 1 \# ctrl_2_tx_fifo_push_data [33] $end
+$var wire 1 ]# ctrl_2_tx_fifo_push_data [32] $end
+$var wire 1 ^# ctrl_2_tx_fifo_push_data [31] $end
+$var wire 1 _# ctrl_2_tx_fifo_push_data [30] $end
+$var wire 1 `# ctrl_2_tx_fifo_push_data [29] $end
+$var wire 1 a# ctrl_2_tx_fifo_push_data [28] $end
+$var wire 1 b# ctrl_2_tx_fifo_push_data [27] $end
+$var wire 1 c# ctrl_2_tx_fifo_push_data [26] $end
+$var wire 1 d# ctrl_2_tx_fifo_push_data [25] $end
+$var wire 1 e# ctrl_2_tx_fifo_push_data [24] $end
+$var wire 1 f# ctrl_2_tx_fifo_push_data [23] $end
+$var wire 1 g# ctrl_2_tx_fifo_push_data [22] $end
+$var wire 1 h# ctrl_2_tx_fifo_push_data [21] $end
+$var wire 1 i# ctrl_2_tx_fifo_push_data [20] $end
+$var wire 1 j# ctrl_2_tx_fifo_push_data [19] $end
+$var wire 1 k# ctrl_2_tx_fifo_push_data [18] $end
+$var wire 1 l# ctrl_2_tx_fifo_push_data [17] $end
+$var wire 1 m# ctrl_2_tx_fifo_push_data [16] $end
+$var wire 1 n# ctrl_2_tx_fifo_push_data [15] $end
+$var wire 1 o# ctrl_2_tx_fifo_push_data [14] $end
+$var wire 1 p# ctrl_2_tx_fifo_push_data [13] $end
+$var wire 1 q# ctrl_2_tx_fifo_push_data [12] $end
+$var wire 1 r# ctrl_2_tx_fifo_push_data [11] $end
+$var wire 1 s# ctrl_2_tx_fifo_push_data [10] $end
+$var wire 1 t# ctrl_2_tx_fifo_push_data [9] $end
+$var wire 1 u# ctrl_2_tx_fifo_push_data [8] $end
+$var wire 1 v# ctrl_2_tx_fifo_push_data [7] $end
+$var wire 1 w# ctrl_2_tx_fifo_push_data [6] $end
+$var wire 1 x# ctrl_2_tx_fifo_push_data [5] $end
+$var wire 1 y# ctrl_2_tx_fifo_push_data [4] $end
+$var wire 1 z# ctrl_2_tx_fifo_push_data [3] $end
+$var wire 1 {# ctrl_2_tx_fifo_push_data [2] $end
+$var wire 1 |# ctrl_2_tx_fifo_push_data [1] $end
+$var wire 1 }# ctrl_2_tx_fifo_push_data [0] $end
+$var wire 1 ~# ctrl_2_tx_fifo_push_ready $end
+$var wire 1 !$ regs_2_ctrl_ctrl_offset [1] $end
+$var wire 1 "$ regs_2_ctrl_ctrl_offset [0] $end
+$var wire 1 #$ regs_2_ctrl_ctrl_size [2] $end
+$var wire 1 $$ regs_2_ctrl_ctrl_size [1] $end
+$var wire 1 %$ regs_2_ctrl_ctrl_size [0] $end
 
 $scope module rx_ctrl $end
-$var parameter 32 z# ALGN_DATA_WIDTH $end
-$var parameter 32 {# STATUS_CNT_DROP_WIDTH $end
-$var parameter 32 |# ALGN_OFFSET_WIDTH $end
-$var parameter 32 }# ALGN_SIZE_WIDTH $end
-$var parameter 32 ~# FIFO_DATA_WIDTH $end
-$var parameter 32 !$ DATA_MSB $end
-$var parameter 32 "$ DATA_LSB $end
-$var parameter 32 #$ OFFSET_MSB $end
-$var parameter 32 $$ OFFSET_LSB $end
-$var parameter 32 %$ SIZE_MSB $end
-$var parameter 32 &$ SIZE_LSB $end
-$var wire 1 + preset_n $end
-$var wire 1 * pclk $end
-$var wire 1 )" clr_cnt_dop $end
-$var wire 1 !" status_cnt_drop [7] $end
-$var wire 1 "" status_cnt_drop [6] $end
-$var wire 1 #" status_cnt_drop [5] $end
-$var wire 1 $" status_cnt_drop [4] $end
-$var wire 1 %" status_cnt_drop [3] $end
-$var wire 1 &" status_cnt_drop [2] $end
-$var wire 1 '" status_cnt_drop [1] $end
-$var wire 1 (" status_cnt_drop [0] $end
-$var wire 1 * md_rx_clk $end
-$var wire 1 #! md_rx_valid $end
-$var wire 1 $! md_rx_data [31] $end
-$var wire 1 %! md_rx_data [30] $end
-$var wire 1 &! md_rx_data [29] $end
-$var wire 1 '! md_rx_data [28] $end
-$var wire 1 (! md_rx_data [27] $end
-$var wire 1 )! md_rx_data [26] $end
-$var wire 1 *! md_rx_data [25] $end
-$var wire 1 +! md_rx_data [24] $end
-$var wire 1 ,! md_rx_data [23] $end
-$var wire 1 -! md_rx_data [22] $end
-$var wire 1 .! md_rx_data [21] $end
-$var wire 1 /! md_rx_data [20] $end
-$var wire 1 0! md_rx_data [19] $end
-$var wire 1 1! md_rx_data [18] $end
-$var wire 1 2! md_rx_data [17] $end
-$var wire 1 3! md_rx_data [16] $end
-$var wire 1 4! md_rx_data [15] $end
-$var wire 1 5! md_rx_data [14] $end
-$var wire 1 6! md_rx_data [13] $end
-$var wire 1 7! md_rx_data [12] $end
-$var wire 1 8! md_rx_data [11] $end
-$var wire 1 9! md_rx_data [10] $end
-$var wire 1 :! md_rx_data [9] $end
-$var wire 1 ;! md_rx_data [8] $end
-$var wire 1 <! md_rx_data [7] $end
-$var wire 1 =! md_rx_data [6] $end
-$var wire 1 >! md_rx_data [5] $end
-$var wire 1 ?! md_rx_data [4] $end
-$var wire 1 @! md_rx_data [3] $end
-$var wire 1 A! md_rx_data [2] $end
-$var wire 1 B! md_rx_data [1] $end
-$var wire 1 C! md_rx_data [0] $end
-$var wire 1 D! md_rx_offset [1] $end
-$var wire 1 E! md_rx_offset [0] $end
-$var wire 1 F! md_rx_size [2] $end
-$var wire 1 G! md_rx_size [1] $end
-$var wire 1 H! md_rx_size [0] $end
-$var wire 1 I! md_rx_ready $end
-$var reg 1 '$ md_rx_err $end
-$var wire 1 *" push_valid $end
-$var wire 1 +" push_data [36] $end
-$var wire 1 ," push_data [35] $end
-$var wire 1 -" push_data [34] $end
-$var wire 1 ." push_data [33] $end
-$var wire 1 /" push_data [32] $end
-$var wire 1 0" push_data [31] $end
-$var wire 1 1" push_data [30] $end
-$var wire 1 2" push_data [29] $end
-$var wire 1 3" push_data [28] $end
-$var wire 1 4" push_data [27] $end
-$var wire 1 5" push_data [26] $end
-$var wire 1 6" push_data [25] $end
-$var wire 1 7" push_data [24] $end
-$var wire 1 8" push_data [23] $end
-$var wire 1 9" push_data [22] $end
-$var wire 1 :" push_data [21] $end
-$var wire 1 ;" push_data [20] $end
-$var wire 1 <" push_data [19] $end
-$var wire 1 =" push_data [18] $end
-$var wire 1 >" push_data [17] $end
-$var wire 1 ?" push_data [16] $end
-$var wire 1 @" push_data [15] $end
-$var wire 1 A" push_data [14] $end
-$var wire 1 B" push_data [13] $end
-$var wire 1 C" push_data [12] $end
-$var wire 1 D" push_data [11] $end
-$var wire 1 E" push_data [10] $end
-$var wire 1 F" push_data [9] $end
-$var wire 1 G" push_data [8] $end
-$var wire 1 H" push_data [7] $end
-$var wire 1 I" push_data [6] $end
-$var wire 1 J" push_data [5] $end
-$var wire 1 K" push_data [4] $end
-$var wire 1 L" push_data [3] $end
-$var wire 1 M" push_data [2] $end
-$var wire 1 N" push_data [1] $end
-$var wire 1 O" push_data [0] $end
-$var wire 1 P" push_ready $end
-$var wire 1 Q" rx_fifo_full $end
-$var reg 8 ($ md_rx_clk_status_cnt_drop [7:0] $end
+$var parameter 32 &$ ALGN_DATA_WIDTH $end
+$var parameter 32 '$ STATUS_CNT_DROP_WIDTH $end
+$var parameter 32 ($ ALGN_OFFSET_WIDTH $end
+$var parameter 32 )$ ALGN_SIZE_WIDTH $end
+$var parameter 32 *$ FIFO_DATA_WIDTH $end
+$var parameter 32 +$ DATA_MSB $end
+$var parameter 32 ,$ DATA_LSB $end
+$var parameter 32 -$ OFFSET_MSB $end
+$var parameter 32 .$ OFFSET_LSB $end
+$var parameter 32 /$ SIZE_MSB $end
+$var parameter 32 0$ SIZE_LSB $end
+$var wire 1 5 preset_n $end
+$var wire 1 4 pclk $end
+$var wire 1 3" clr_cnt_dop $end
+$var wire 1 +" status_cnt_drop [7] $end
+$var wire 1 ," status_cnt_drop [6] $end
+$var wire 1 -" status_cnt_drop [5] $end
+$var wire 1 ." status_cnt_drop [4] $end
+$var wire 1 /" status_cnt_drop [3] $end
+$var wire 1 0" status_cnt_drop [2] $end
+$var wire 1 1" status_cnt_drop [1] $end
+$var wire 1 2" status_cnt_drop [0] $end
+$var wire 1 4 md_rx_clk $end
+$var wire 1 -! md_rx_valid $end
+$var wire 1 .! md_rx_data [31] $end
+$var wire 1 /! md_rx_data [30] $end
+$var wire 1 0! md_rx_data [29] $end
+$var wire 1 1! md_rx_data [28] $end
+$var wire 1 2! md_rx_data [27] $end
+$var wire 1 3! md_rx_data [26] $end
+$var wire 1 4! md_rx_data [25] $end
+$var wire 1 5! md_rx_data [24] $end
+$var wire 1 6! md_rx_data [23] $end
+$var wire 1 7! md_rx_data [22] $end
+$var wire 1 8! md_rx_data [21] $end
+$var wire 1 9! md_rx_data [20] $end
+$var wire 1 :! md_rx_data [19] $end
+$var wire 1 ;! md_rx_data [18] $end
+$var wire 1 <! md_rx_data [17] $end
+$var wire 1 =! md_rx_data [16] $end
+$var wire 1 >! md_rx_data [15] $end
+$var wire 1 ?! md_rx_data [14] $end
+$var wire 1 @! md_rx_data [13] $end
+$var wire 1 A! md_rx_data [12] $end
+$var wire 1 B! md_rx_data [11] $end
+$var wire 1 C! md_rx_data [10] $end
+$var wire 1 D! md_rx_data [9] $end
+$var wire 1 E! md_rx_data [8] $end
+$var wire 1 F! md_rx_data [7] $end
+$var wire 1 G! md_rx_data [6] $end
+$var wire 1 H! md_rx_data [5] $end
+$var wire 1 I! md_rx_data [4] $end
+$var wire 1 J! md_rx_data [3] $end
+$var wire 1 K! md_rx_data [2] $end
+$var wire 1 L! md_rx_data [1] $end
+$var wire 1 M! md_rx_data [0] $end
+$var wire 1 N! md_rx_offset [1] $end
+$var wire 1 O! md_rx_offset [0] $end
+$var wire 1 P! md_rx_size [2] $end
+$var wire 1 Q! md_rx_size [1] $end
+$var wire 1 R! md_rx_size [0] $end
+$var wire 1 S! md_rx_ready $end
+$var reg 1 1$ md_rx_err $end
+$var wire 1 4" push_valid $end
+$var wire 1 5" push_data [36] $end
+$var wire 1 6" push_data [35] $end
+$var wire 1 7" push_data [34] $end
+$var wire 1 8" push_data [33] $end
+$var wire 1 9" push_data [32] $end
+$var wire 1 :" push_data [31] $end
+$var wire 1 ;" push_data [30] $end
+$var wire 1 <" push_data [29] $end
+$var wire 1 =" push_data [28] $end
+$var wire 1 >" push_data [27] $end
+$var wire 1 ?" push_data [26] $end
+$var wire 1 @" push_data [25] $end
+$var wire 1 A" push_data [24] $end
+$var wire 1 B" push_data [23] $end
+$var wire 1 C" push_data [22] $end
+$var wire 1 D" push_data [21] $end
+$var wire 1 E" push_data [20] $end
+$var wire 1 F" push_data [19] $end
+$var wire 1 G" push_data [18] $end
+$var wire 1 H" push_data [17] $end
+$var wire 1 I" push_data [16] $end
+$var wire 1 J" push_data [15] $end
+$var wire 1 K" push_data [14] $end
+$var wire 1 L" push_data [13] $end
+$var wire 1 M" push_data [12] $end
+$var wire 1 N" push_data [11] $end
+$var wire 1 O" push_data [10] $end
+$var wire 1 P" push_data [9] $end
+$var wire 1 Q" push_data [8] $end
+$var wire 1 R" push_data [7] $end
+$var wire 1 S" push_data [6] $end
+$var wire 1 T" push_data [5] $end
+$var wire 1 U" push_data [4] $end
+$var wire 1 V" push_data [3] $end
+$var wire 1 W" push_data [2] $end
+$var wire 1 X" push_data [1] $end
+$var wire 1 Y" push_data [0] $end
+$var wire 1 Z" push_ready $end
+$var wire 1 [" rx_fifo_full $end
+$var reg 8 2$ md_rx_clk_status_cnt_drop [7:0] $end
 
 $scope module synch_status_cnt_drop $end
-$var parameter 32 )$ DATA_WIDTH $end
-$var wire 1 * clk $end
-$var wire 1 *$ i [7] $end
-$var wire 1 +$ i [6] $end
-$var wire 1 ,$ i [5] $end
-$var wire 1 -$ i [4] $end
-$var wire 1 .$ i [3] $end
-$var wire 1 /$ i [2] $end
-$var wire 1 0$ i [1] $end
-$var wire 1 1$ i [0] $end
-$var reg 8 2$ o [7:0] $end
+$var parameter 32 3$ DATA_WIDTH $end
+$var wire 1 4 clk $end
+$var wire 1 4$ i [7] $end
+$var wire 1 5$ i [6] $end
+$var wire 1 6$ i [5] $end
+$var wire 1 7$ i [4] $end
+$var wire 1 8$ i [3] $end
+$var wire 1 9$ i [2] $end
+$var wire 1 :$ i [1] $end
+$var wire 1 ;$ i [0] $end
+$var reg 8 <$ o [7:0] $end
 $upscope $end
 $upscope $end
 
 $scope module rx_fifo $end
-$var parameter 32 3$ DATA_WIDTH $end
-$var parameter 32 4$ FIFO_DEPTH $end
-$var parameter 32 5$ CDC $end
-$var parameter 32 6$ CNT_WIDTH $end
-$var wire 1 + reset_n $end
-$var wire 1 * push_clk $end
-$var wire 1 *" push_valid $end
-$var wire 1 +" push_data [36] $end
-$var wire 1 ," push_data [35] $end
-$var wire 1 -" push_data [34] $end
-$var wire 1 ." push_data [33] $end
-$var wire 1 /" push_data [32] $end
-$var wire 1 0" push_data [31] $end
-$var wire 1 1" push_data [30] $end
-$var wire 1 2" push_data [29] $end
-$var wire 1 3" push_data [28] $end
-$var wire 1 4" push_data [27] $end
-$var wire 1 5" push_data [26] $end
-$var wire 1 6" push_data [25] $end
-$var wire 1 7" push_data [24] $end
-$var wire 1 8" push_data [23] $end
-$var wire 1 9" push_data [22] $end
-$var wire 1 :" push_data [21] $end
-$var wire 1 ;" push_data [20] $end
-$var wire 1 <" push_data [19] $end
-$var wire 1 =" push_data [18] $end
-$var wire 1 >" push_data [17] $end
-$var wire 1 ?" push_data [16] $end
-$var wire 1 @" push_data [15] $end
-$var wire 1 A" push_data [14] $end
-$var wire 1 B" push_data [13] $end
-$var wire 1 C" push_data [12] $end
-$var wire 1 D" push_data [11] $end
-$var wire 1 E" push_data [10] $end
-$var wire 1 F" push_data [9] $end
-$var wire 1 G" push_data [8] $end
-$var wire 1 H" push_data [7] $end
-$var wire 1 I" push_data [6] $end
-$var wire 1 J" push_data [5] $end
-$var wire 1 K" push_data [4] $end
-$var wire 1 L" push_data [3] $end
-$var wire 1 M" push_data [2] $end
-$var wire 1 N" push_data [1] $end
-$var wire 1 O" push_data [0] $end
-$var wire 1 P" push_ready $end
-$var wire 1 Q" push_full $end
-$var wire 1 7$ push_empty $end
-$var reg 4 8$ push_fifo_lvl [3:0] $end
-$var wire 1 * pop_clk $end
-$var wire 1 '# pop_valid $end
-$var wire 1 (# pop_data [36] $end
-$var wire 1 )# pop_data [35] $end
-$var wire 1 *# pop_data [34] $end
-$var wire 1 +# pop_data [33] $end
-$var wire 1 ,# pop_data [32] $end
-$var wire 1 -# pop_data [31] $end
-$var wire 1 .# pop_data [30] $end
-$var wire 1 /# pop_data [29] $end
-$var wire 1 0# pop_data [28] $end
-$var wire 1 1# pop_data [27] $end
-$var wire 1 2# pop_data [26] $end
-$var wire 1 3# pop_data [25] $end
-$var wire 1 4# pop_data [24] $end
-$var wire 1 5# pop_data [23] $end
-$var wire 1 6# pop_data [22] $end
-$var wire 1 7# pop_data [21] $end
-$var wire 1 8# pop_data [20] $end
-$var wire 1 9# pop_data [19] $end
-$var wire 1 :# pop_data [18] $end
-$var wire 1 ;# pop_data [17] $end
-$var wire 1 <# pop_data [16] $end
-$var wire 1 =# pop_data [15] $end
-$var wire 1 ># pop_data [14] $end
-$var wire 1 ?# pop_data [13] $end
-$var wire 1 @# pop_data [12] $end
-$var wire 1 A# pop_data [11] $end
-$var wire 1 B# pop_data [10] $end
-$var wire 1 C# pop_data [9] $end
-$var wire 1 D# pop_data [8] $end
-$var wire 1 E# pop_data [7] $end
-$var wire 1 F# pop_data [6] $end
-$var wire 1 G# pop_data [5] $end
-$var wire 1 H# pop_data [4] $end
-$var wire 1 I# pop_data [3] $end
-$var wire 1 J# pop_data [2] $end
-$var wire 1 K# pop_data [1] $end
-$var wire 1 L# pop_data [0] $end
-$var wire 1 M# pop_ready $end
-$var wire 1 R" pop_full $end
-$var wire 1 S" pop_empty $end
-$var reg 4 9$ pop_fifo_lvl [3:0] $end
-$var wire 1 :$ rd_ptr_push [2] $end
-$var wire 1 ;$ rd_ptr_push [1] $end
-$var wire 1 <$ rd_ptr_push [0] $end
-$var reg 3 =$ rd_ptr_pop [2:0] $end
-$var reg 3 >$ next_wr_ptr_push [2:0] $end
-$var reg 3 ?$ next_rd_ptr_pop [2:0] $end
-$var reg 3 @$ wr_ptr_push [2:0] $end
-$var wire 1 A$ wr_ptr_pop [2] $end
-$var wire 1 B$ wr_ptr_pop [1] $end
-$var wire 1 C$ wr_ptr_pop [0] $end
-$var reg 4 D$ push_fifo_lvl_dly [3:0] $end
-$var reg 4 E$ pop_fifo_lvl_dly [3:0] $end
+$var parameter 32 =$ DATA_WIDTH $end
+$var parameter 32 >$ FIFO_DEPTH $end
+$var parameter 32 ?$ CDC $end
+$var parameter 32 @$ CNT_WIDTH $end
+$var wire 1 5 reset_n $end
+$var wire 1 4 push_clk $end
+$var wire 1 4" push_valid $end
+$var wire 1 5" push_data [36] $end
+$var wire 1 6" push_data [35] $end
+$var wire 1 7" push_data [34] $end
+$var wire 1 8" push_data [33] $end
+$var wire 1 9" push_data [32] $end
+$var wire 1 :" push_data [31] $end
+$var wire 1 ;" push_data [30] $end
+$var wire 1 <" push_data [29] $end
+$var wire 1 =" push_data [28] $end
+$var wire 1 >" push_data [27] $end
+$var wire 1 ?" push_data [26] $end
+$var wire 1 @" push_data [25] $end
+$var wire 1 A" push_data [24] $end
+$var wire 1 B" push_data [23] $end
+$var wire 1 C" push_data [22] $end
+$var wire 1 D" push_data [21] $end
+$var wire 1 E" push_data [20] $end
+$var wire 1 F" push_data [19] $end
+$var wire 1 G" push_data [18] $end
+$var wire 1 H" push_data [17] $end
+$var wire 1 I" push_data [16] $end
+$var wire 1 J" push_data [15] $end
+$var wire 1 K" push_data [14] $end
+$var wire 1 L" push_data [13] $end
+$var wire 1 M" push_data [12] $end
+$var wire 1 N" push_data [11] $end
+$var wire 1 O" push_data [10] $end
+$var wire 1 P" push_data [9] $end
+$var wire 1 Q" push_data [8] $end
+$var wire 1 R" push_data [7] $end
+$var wire 1 S" push_data [6] $end
+$var wire 1 T" push_data [5] $end
+$var wire 1 U" push_data [4] $end
+$var wire 1 V" push_data [3] $end
+$var wire 1 W" push_data [2] $end
+$var wire 1 X" push_data [1] $end
+$var wire 1 Y" push_data [0] $end
+$var wire 1 Z" push_ready $end
+$var wire 1 [" push_full $end
+$var wire 1 A$ push_empty $end
+$var reg 4 B$ push_fifo_lvl [3:0] $end
+$var wire 1 4 pop_clk $end
+$var wire 1 1# pop_valid $end
+$var wire 1 2# pop_data [36] $end
+$var wire 1 3# pop_data [35] $end
+$var wire 1 4# pop_data [34] $end
+$var wire 1 5# pop_data [33] $end
+$var wire 1 6# pop_data [32] $end
+$var wire 1 7# pop_data [31] $end
+$var wire 1 8# pop_data [30] $end
+$var wire 1 9# pop_data [29] $end
+$var wire 1 :# pop_data [28] $end
+$var wire 1 ;# pop_data [27] $end
+$var wire 1 <# pop_data [26] $end
+$var wire 1 =# pop_data [25] $end
+$var wire 1 ># pop_data [24] $end
+$var wire 1 ?# pop_data [23] $end
+$var wire 1 @# pop_data [22] $end
+$var wire 1 A# pop_data [21] $end
+$var wire 1 B# pop_data [20] $end
+$var wire 1 C# pop_data [19] $end
+$var wire 1 D# pop_data [18] $end
+$var wire 1 E# pop_data [17] $end
+$var wire 1 F# pop_data [16] $end
+$var wire 1 G# pop_data [15] $end
+$var wire 1 H# pop_data [14] $end
+$var wire 1 I# pop_data [13] $end
+$var wire 1 J# pop_data [12] $end
+$var wire 1 K# pop_data [11] $end
+$var wire 1 L# pop_data [10] $end
+$var wire 1 M# pop_data [9] $end
+$var wire 1 N# pop_data [8] $end
+$var wire 1 O# pop_data [7] $end
+$var wire 1 P# pop_data [6] $end
+$var wire 1 Q# pop_data [5] $end
+$var wire 1 R# pop_data [4] $end
+$var wire 1 S# pop_data [3] $end
+$var wire 1 T# pop_data [2] $end
+$var wire 1 U# pop_data [1] $end
+$var wire 1 V# pop_data [0] $end
+$var wire 1 W# pop_ready $end
+$var wire 1 \" pop_full $end
+$var wire 1 ]" pop_empty $end
+$var reg 4 C$ pop_fifo_lvl [3:0] $end
+$var wire 1 D$ rd_ptr_push [2] $end
+$var wire 1 E$ rd_ptr_push [1] $end
+$var wire 1 F$ rd_ptr_push [0] $end
+$var reg 3 G$ rd_ptr_pop [2:0] $end
+$var reg 3 H$ next_wr_ptr_push [2:0] $end
+$var reg 3 I$ next_rd_ptr_pop [2:0] $end
+$var reg 3 J$ wr_ptr_push [2:0] $end
+$var wire 1 K$ wr_ptr_pop [2] $end
+$var wire 1 L$ wr_ptr_pop [1] $end
+$var wire 1 M$ wr_ptr_pop [0] $end
+$var reg 4 N$ push_fifo_lvl_dly [3:0] $end
+$var reg 4 O$ pop_fifo_lvl_dly [3:0] $end
 $upscope $end
 
 $scope module tx_fifo $end
-$var parameter 32 F$ DATA_WIDTH $end
-$var parameter 32 G$ FIFO_DEPTH $end
-$var parameter 32 H$ CDC $end
-$var parameter 32 I$ CNT_WIDTH $end
-$var wire 1 + reset_n $end
-$var wire 1 * push_clk $end
-$var wire 1 N# push_valid $end
-$var wire 1 O# push_data [36] $end
-$var wire 1 P# push_data [35] $end
-$var wire 1 Q# push_data [34] $end
-$var wire 1 R# push_data [33] $end
-$var wire 1 S# push_data [32] $end
-$var wire 1 T# push_data [31] $end
-$var wire 1 U# push_data [30] $end
-$var wire 1 V# push_data [29] $end
-$var wire 1 W# push_data [28] $end
-$var wire 1 X# push_data [27] $end
-$var wire 1 Y# push_data [26] $end
-$var wire 1 Z# push_data [25] $end
-$var wire 1 [# push_data [24] $end
-$var wire 1 \# push_data [23] $end
-$var wire 1 ]# push_data [22] $end
-$var wire 1 ^# push_data [21] $end
-$var wire 1 _# push_data [20] $end
-$var wire 1 `# push_data [19] $end
-$var wire 1 a# push_data [18] $end
-$var wire 1 b# push_data [17] $end
-$var wire 1 c# push_data [16] $end
-$var wire 1 d# push_data [15] $end
-$var wire 1 e# push_data [14] $end
-$var wire 1 f# push_data [13] $end
-$var wire 1 g# push_data [12] $end
-$var wire 1 h# push_data [11] $end
-$var wire 1 i# push_data [10] $end
-$var wire 1 j# push_data [9] $end
-$var wire 1 k# push_data [8] $end
-$var wire 1 l# push_data [7] $end
-$var wire 1 m# push_data [6] $end
-$var wire 1 n# push_data [5] $end
-$var wire 1 o# push_data [4] $end
-$var wire 1 p# push_data [3] $end
-$var wire 1 q# push_data [2] $end
-$var wire 1 r# push_data [1] $end
-$var wire 1 s# push_data [0] $end
-$var wire 1 t# push_ready $end
-$var wire 1 ]" push_full $end
-$var wire 1 \" push_empty $end
-$var reg 4 J$ push_fifo_lvl [3:0] $end
-$var wire 1 * pop_clk $end
-$var wire 1 ^" pop_valid $end
-$var wire 1 _" pop_data [36] $end
-$var wire 1 `" pop_data [35] $end
-$var wire 1 a" pop_data [34] $end
-$var wire 1 b" pop_data [33] $end
-$var wire 1 c" pop_data [32] $end
-$var wire 1 d" pop_data [31] $end
-$var wire 1 e" pop_data [30] $end
-$var wire 1 f" pop_data [29] $end
-$var wire 1 g" pop_data [28] $end
-$var wire 1 h" pop_data [27] $end
-$var wire 1 i" pop_data [26] $end
-$var wire 1 j" pop_data [25] $end
-$var wire 1 k" pop_data [24] $end
-$var wire 1 l" pop_data [23] $end
-$var wire 1 m" pop_data [22] $end
-$var wire 1 n" pop_data [21] $end
-$var wire 1 o" pop_data [20] $end
-$var wire 1 p" pop_data [19] $end
-$var wire 1 q" pop_data [18] $end
-$var wire 1 r" pop_data [17] $end
-$var wire 1 s" pop_data [16] $end
-$var wire 1 t" pop_data [15] $end
-$var wire 1 u" pop_data [14] $end
-$var wire 1 v" pop_data [13] $end
-$var wire 1 w" pop_data [12] $end
-$var wire 1 x" pop_data [11] $end
-$var wire 1 y" pop_data [10] $end
-$var wire 1 z" pop_data [9] $end
-$var wire 1 {" pop_data [8] $end
-$var wire 1 |" pop_data [7] $end
-$var wire 1 }" pop_data [6] $end
-$var wire 1 ~" pop_data [5] $end
-$var wire 1 !# pop_data [4] $end
-$var wire 1 "# pop_data [3] $end
-$var wire 1 ## pop_data [2] $end
-$var wire 1 $# pop_data [1] $end
-$var wire 1 %# pop_data [0] $end
-$var wire 1 &# pop_ready $end
-$var wire 1 K$ pop_full $end
-$var wire 1 L$ pop_empty $end
-$var reg 4 M$ pop_fifo_lvl [3:0] $end
-$var wire 1 N$ rd_ptr_push [2] $end
-$var wire 1 O$ rd_ptr_push [1] $end
-$var wire 1 P$ rd_ptr_push [0] $end
-$var reg 3 Q$ rd_ptr_pop [2:0] $end
-$var reg 3 R$ next_wr_ptr_push [2:0] $end
-$var reg 3 S$ next_rd_ptr_pop [2:0] $end
-$var reg 3 T$ wr_ptr_push [2:0] $end
-$var wire 1 U$ wr_ptr_pop [2] $end
-$var wire 1 V$ wr_ptr_pop [1] $end
-$var wire 1 W$ wr_ptr_pop [0] $end
-$var reg 4 X$ push_fifo_lvl_dly [3:0] $end
-$var reg 4 Y$ pop_fifo_lvl_dly [3:0] $end
+$var parameter 32 P$ DATA_WIDTH $end
+$var parameter 32 Q$ FIFO_DEPTH $end
+$var parameter 32 R$ CDC $end
+$var parameter 32 S$ CNT_WIDTH $end
+$var wire 1 5 reset_n $end
+$var wire 1 4 push_clk $end
+$var wire 1 X# push_valid $end
+$var wire 1 Y# push_data [36] $end
+$var wire 1 Z# push_data [35] $end
+$var wire 1 [# push_data [34] $end
+$var wire 1 \# push_data [33] $end
+$var wire 1 ]# push_data [32] $end
+$var wire 1 ^# push_data [31] $end
+$var wire 1 _# push_data [30] $end
+$var wire 1 `# push_data [29] $end
+$var wire 1 a# push_data [28] $end
+$var wire 1 b# push_data [27] $end
+$var wire 1 c# push_data [26] $end
+$var wire 1 d# push_data [25] $end
+$var wire 1 e# push_data [24] $end
+$var wire 1 f# push_data [23] $end
+$var wire 1 g# push_data [22] $end
+$var wire 1 h# push_data [21] $end
+$var wire 1 i# push_data [20] $end
+$var wire 1 j# push_data [19] $end
+$var wire 1 k# push_data [18] $end
+$var wire 1 l# push_data [17] $end
+$var wire 1 m# push_data [16] $end
+$var wire 1 n# push_data [15] $end
+$var wire 1 o# push_data [14] $end
+$var wire 1 p# push_data [13] $end
+$var wire 1 q# push_data [12] $end
+$var wire 1 r# push_data [11] $end
+$var wire 1 s# push_data [10] $end
+$var wire 1 t# push_data [9] $end
+$var wire 1 u# push_data [8] $end
+$var wire 1 v# push_data [7] $end
+$var wire 1 w# push_data [6] $end
+$var wire 1 x# push_data [5] $end
+$var wire 1 y# push_data [4] $end
+$var wire 1 z# push_data [3] $end
+$var wire 1 {# push_data [2] $end
+$var wire 1 |# push_data [1] $end
+$var wire 1 }# push_data [0] $end
+$var wire 1 ~# push_ready $end
+$var wire 1 g" push_full $end
+$var wire 1 f" push_empty $end
+$var reg 4 T$ push_fifo_lvl [3:0] $end
+$var wire 1 4 pop_clk $end
+$var wire 1 h" pop_valid $end
+$var wire 1 i" pop_data [36] $end
+$var wire 1 j" pop_data [35] $end
+$var wire 1 k" pop_data [34] $end
+$var wire 1 l" pop_data [33] $end
+$var wire 1 m" pop_data [32] $end
+$var wire 1 n" pop_data [31] $end
+$var wire 1 o" pop_data [30] $end
+$var wire 1 p" pop_data [29] $end
+$var wire 1 q" pop_data [28] $end
+$var wire 1 r" pop_data [27] $end
+$var wire 1 s" pop_data [26] $end
+$var wire 1 t" pop_data [25] $end
+$var wire 1 u" pop_data [24] $end
+$var wire 1 v" pop_data [23] $end
+$var wire 1 w" pop_data [22] $end
+$var wire 1 x" pop_data [21] $end
+$var wire 1 y" pop_data [20] $end
+$var wire 1 z" pop_data [19] $end
+$var wire 1 {" pop_data [18] $end
+$var wire 1 |" pop_data [17] $end
+$var wire 1 }" pop_data [16] $end
+$var wire 1 ~" pop_data [15] $end
+$var wire 1 !# pop_data [14] $end
+$var wire 1 "# pop_data [13] $end
+$var wire 1 ## pop_data [12] $end
+$var wire 1 $# pop_data [11] $end
+$var wire 1 %# pop_data [10] $end
+$var wire 1 &# pop_data [9] $end
+$var wire 1 '# pop_data [8] $end
+$var wire 1 (# pop_data [7] $end
+$var wire 1 )# pop_data [6] $end
+$var wire 1 *# pop_data [5] $end
+$var wire 1 +# pop_data [4] $end
+$var wire 1 ,# pop_data [3] $end
+$var wire 1 -# pop_data [2] $end
+$var wire 1 .# pop_data [1] $end
+$var wire 1 /# pop_data [0] $end
+$var wire 1 0# pop_ready $end
+$var wire 1 U$ pop_full $end
+$var wire 1 V$ pop_empty $end
+$var reg 4 W$ pop_fifo_lvl [3:0] $end
+$var wire 1 X$ rd_ptr_push [2] $end
+$var wire 1 Y$ rd_ptr_push [1] $end
+$var wire 1 Z$ rd_ptr_push [0] $end
+$var reg 3 [$ rd_ptr_pop [2:0] $end
+$var reg 3 \$ next_wr_ptr_push [2:0] $end
+$var reg 3 ]$ next_rd_ptr_pop [2:0] $end
+$var reg 3 ^$ wr_ptr_push [2:0] $end
+$var wire 1 _$ wr_ptr_pop [2] $end
+$var wire 1 `$ wr_ptr_pop [1] $end
+$var wire 1 a$ wr_ptr_pop [0] $end
+$var reg 4 b$ push_fifo_lvl_dly [3:0] $end
+$var reg 4 c$ pop_fifo_lvl_dly [3:0] $end
 $upscope $end
 
 $scope module tx_ctrl $end
-$var parameter 32 Z$ ALGN_DATA_WIDTH $end
-$var parameter 32 [$ ALGN_OFFSET_WIDTH $end
-$var parameter 32 \$ ALGN_SIZE_WIDTH $end
-$var parameter 32 ]$ FIFO_DATA_WIDTH $end
-$var parameter 32 ^$ DATA_MSB $end
-$var parameter 32 _$ DATA_LSB $end
-$var parameter 32 `$ OFFSET_MSB $end
-$var parameter 32 a$ OFFSET_LSB $end
-$var parameter 32 b$ SIZE_MSB $end
-$var parameter 32 c$ SIZE_LSB $end
-$var wire 1 ^" pop_valid $end
-$var wire 1 _" pop_data [36] $end
-$var wire 1 `" pop_data [35] $end
-$var wire 1 a" pop_data [34] $end
-$var wire 1 b" pop_data [33] $end
-$var wire 1 c" pop_data [32] $end
-$var wire 1 d" pop_data [31] $end
-$var wire 1 e" pop_data [30] $end
-$var wire 1 f" pop_data [29] $end
-$var wire 1 g" pop_data [28] $end
-$var wire 1 h" pop_data [27] $end
-$var wire 1 i" pop_data [26] $end
-$var wire 1 j" pop_data [25] $end
-$var wire 1 k" pop_data [24] $end
-$var wire 1 l" pop_data [23] $end
-$var wire 1 m" pop_data [22] $end
-$var wire 1 n" pop_data [21] $end
-$var wire 1 o" pop_data [20] $end
-$var wire 1 p" pop_data [19] $end
-$var wire 1 q" pop_data [18] $end
-$var wire 1 r" pop_data [17] $end
-$var wire 1 s" pop_data [16] $end
-$var wire 1 t" pop_data [15] $end
-$var wire 1 u" pop_data [14] $end
-$var wire 1 v" pop_data [13] $end
-$var wire 1 w" pop_data [12] $end
-$var wire 1 x" pop_data [11] $end
-$var wire 1 y" pop_data [10] $end
-$var wire 1 z" pop_data [9] $end
-$var wire 1 {" pop_data [8] $end
-$var wire 1 |" pop_data [7] $end
-$var wire 1 }" pop_data [6] $end
-$var wire 1 ~" pop_data [5] $end
-$var wire 1 !# pop_data [4] $end
-$var wire 1 "# pop_data [3] $end
-$var wire 1 ## pop_data [2] $end
-$var wire 1 $# pop_data [1] $end
-$var wire 1 %# pop_data [0] $end
-$var wire 1 &# pop_ready $end
-$var wire 1 K! md_tx_valid $end
-$var wire 1 L! md_tx_data [31] $end
-$var wire 1 M! md_tx_data [30] $end
-$var wire 1 N! md_tx_data [29] $end
-$var wire 1 O! md_tx_data [28] $end
-$var wire 1 P! md_tx_data [27] $end
-$var wire 1 Q! md_tx_data [26] $end
-$var wire 1 R! md_tx_data [25] $end
-$var wire 1 S! md_tx_data [24] $end
-$var wire 1 T! md_tx_data [23] $end
-$var wire 1 U! md_tx_data [22] $end
-$var wire 1 V! md_tx_data [21] $end
-$var wire 1 W! md_tx_data [20] $end
-$var wire 1 X! md_tx_data [19] $end
-$var wire 1 Y! md_tx_data [18] $end
-$var wire 1 Z! md_tx_data [17] $end
-$var wire 1 [! md_tx_data [16] $end
-$var wire 1 \! md_tx_data [15] $end
-$var wire 1 ]! md_tx_data [14] $end
-$var wire 1 ^! md_tx_data [13] $end
-$var wire 1 _! md_tx_data [12] $end
-$var wire 1 `! md_tx_data [11] $end
-$var wire 1 a! md_tx_data [10] $end
-$var wire 1 b! md_tx_data [9] $end
-$var wire 1 c! md_tx_data [8] $end
-$var wire 1 d! md_tx_data [7] $end
-$var wire 1 e! md_tx_data [6] $end
-$var wire 1 f! md_tx_data [5] $end
-$var wire 1 g! md_tx_data [4] $end
-$var wire 1 h! md_tx_data [3] $end
-$var wire 1 i! md_tx_data [2] $end
-$var wire 1 j! md_tx_data [1] $end
-$var wire 1 k! md_tx_data [0] $end
-$var wire 1 l! md_tx_offset [1] $end
-$var wire 1 m! md_tx_offset [0] $end
-$var wire 1 n! md_tx_size [2] $end
-$var wire 1 o! md_tx_size [1] $end
-$var wire 1 p! md_tx_size [0] $end
-$var wire 1 q! md_tx_ready $end
-$upscope $end
-
-$scope module ctrl $end
 $var parameter 32 d$ ALGN_DATA_WIDTH $end
 $var parameter 32 e$ ALGN_OFFSET_WIDTH $end
 $var parameter 32 f$ ALGN_SIZE_WIDTH $end
-$var parameter 32 g$ FIFO_WIDTH $end
+$var parameter 32 g$ FIFO_DATA_WIDTH $end
 $var parameter 32 h$ DATA_MSB $end
 $var parameter 32 i$ DATA_LSB $end
 $var parameter 32 j$ OFFSET_MSB $end
 $var parameter 32 k$ OFFSET_LSB $end
 $var parameter 32 l$ SIZE_MSB $end
 $var parameter 32 m$ SIZE_LSB $end
-$var wire 1 + reset_n $end
-$var wire 1 * clk $end
-$var wire 1 '# pop_valid $end
-$var wire 1 (# pop_data [36] $end
-$var wire 1 )# pop_data [35] $end
-$var wire 1 *# pop_data [34] $end
-$var wire 1 +# pop_data [33] $end
-$var wire 1 ,# pop_data [32] $end
-$var wire 1 -# pop_data [31] $end
-$var wire 1 .# pop_data [30] $end
-$var wire 1 /# pop_data [29] $end
-$var wire 1 0# pop_data [28] $end
-$var wire 1 1# pop_data [27] $end
-$var wire 1 2# pop_data [26] $end
-$var wire 1 3# pop_data [25] $end
-$var wire 1 4# pop_data [24] $end
-$var wire 1 5# pop_data [23] $end
-$var wire 1 6# pop_data [22] $end
-$var wire 1 7# pop_data [21] $end
-$var wire 1 8# pop_data [20] $end
-$var wire 1 9# pop_data [19] $end
-$var wire 1 :# pop_data [18] $end
-$var wire 1 ;# pop_data [17] $end
-$var wire 1 <# pop_data [16] $end
-$var wire 1 =# pop_data [15] $end
-$var wire 1 ># pop_data [14] $end
-$var wire 1 ?# pop_data [13] $end
-$var wire 1 @# pop_data [12] $end
-$var wire 1 A# pop_data [11] $end
-$var wire 1 B# pop_data [10] $end
-$var wire 1 C# pop_data [9] $end
-$var wire 1 D# pop_data [8] $end
-$var wire 1 E# pop_data [7] $end
-$var wire 1 F# pop_data [6] $end
-$var wire 1 G# pop_data [5] $end
-$var wire 1 H# pop_data [4] $end
-$var wire 1 I# pop_data [3] $end
-$var wire 1 J# pop_data [2] $end
-$var wire 1 K# pop_data [1] $end
-$var wire 1 L# pop_data [0] $end
-$var reg 1 n$ pop_ready $end
-$var reg 1 o$ push_valid $end
-$var reg 37 p$ push_data [36:0] $end
-$var wire 1 t# push_ready $end
-$var wire 1 u# ctrl_offset [1] $end
-$var wire 1 v# ctrl_offset [0] $end
-$var wire 1 w# ctrl_size [2] $end
-$var wire 1 x# ctrl_size [1] $end
-$var wire 1 y# ctrl_size [0] $end
-$var reg 2 q$ unaligned_offset [1:0] $end
-$var reg 3 r$ unaligned_size [2:0] $end
-$var reg 32 s$ unaligned_data [31:0] $end
-$var reg 3 t$ unaligned_bytes_processed [2:0] $end
-$var reg 3 u$ aligned_bytes_processed [2:0] $end
+$var wire 1 h" pop_valid $end
+$var wire 1 i" pop_data [36] $end
+$var wire 1 j" pop_data [35] $end
+$var wire 1 k" pop_data [34] $end
+$var wire 1 l" pop_data [33] $end
+$var wire 1 m" pop_data [32] $end
+$var wire 1 n" pop_data [31] $end
+$var wire 1 o" pop_data [30] $end
+$var wire 1 p" pop_data [29] $end
+$var wire 1 q" pop_data [28] $end
+$var wire 1 r" pop_data [27] $end
+$var wire 1 s" pop_data [26] $end
+$var wire 1 t" pop_data [25] $end
+$var wire 1 u" pop_data [24] $end
+$var wire 1 v" pop_data [23] $end
+$var wire 1 w" pop_data [22] $end
+$var wire 1 x" pop_data [21] $end
+$var wire 1 y" pop_data [20] $end
+$var wire 1 z" pop_data [19] $end
+$var wire 1 {" pop_data [18] $end
+$var wire 1 |" pop_data [17] $end
+$var wire 1 }" pop_data [16] $end
+$var wire 1 ~" pop_data [15] $end
+$var wire 1 !# pop_data [14] $end
+$var wire 1 "# pop_data [13] $end
+$var wire 1 ## pop_data [12] $end
+$var wire 1 $# pop_data [11] $end
+$var wire 1 %# pop_data [10] $end
+$var wire 1 &# pop_data [9] $end
+$var wire 1 '# pop_data [8] $end
+$var wire 1 (# pop_data [7] $end
+$var wire 1 )# pop_data [6] $end
+$var wire 1 *# pop_data [5] $end
+$var wire 1 +# pop_data [4] $end
+$var wire 1 ,# pop_data [3] $end
+$var wire 1 -# pop_data [2] $end
+$var wire 1 .# pop_data [1] $end
+$var wire 1 /# pop_data [0] $end
+$var wire 1 0# pop_ready $end
+$var wire 1 U! md_tx_valid $end
+$var wire 1 V! md_tx_data [31] $end
+$var wire 1 W! md_tx_data [30] $end
+$var wire 1 X! md_tx_data [29] $end
+$var wire 1 Y! md_tx_data [28] $end
+$var wire 1 Z! md_tx_data [27] $end
+$var wire 1 [! md_tx_data [26] $end
+$var wire 1 \! md_tx_data [25] $end
+$var wire 1 ]! md_tx_data [24] $end
+$var wire 1 ^! md_tx_data [23] $end
+$var wire 1 _! md_tx_data [22] $end
+$var wire 1 `! md_tx_data [21] $end
+$var wire 1 a! md_tx_data [20] $end
+$var wire 1 b! md_tx_data [19] $end
+$var wire 1 c! md_tx_data [18] $end
+$var wire 1 d! md_tx_data [17] $end
+$var wire 1 e! md_tx_data [16] $end
+$var wire 1 f! md_tx_data [15] $end
+$var wire 1 g! md_tx_data [14] $end
+$var wire 1 h! md_tx_data [13] $end
+$var wire 1 i! md_tx_data [12] $end
+$var wire 1 j! md_tx_data [11] $end
+$var wire 1 k! md_tx_data [10] $end
+$var wire 1 l! md_tx_data [9] $end
+$var wire 1 m! md_tx_data [8] $end
+$var wire 1 n! md_tx_data [7] $end
+$var wire 1 o! md_tx_data [6] $end
+$var wire 1 p! md_tx_data [5] $end
+$var wire 1 q! md_tx_data [4] $end
+$var wire 1 r! md_tx_data [3] $end
+$var wire 1 s! md_tx_data [2] $end
+$var wire 1 t! md_tx_data [1] $end
+$var wire 1 u! md_tx_data [0] $end
+$var wire 1 v! md_tx_offset [1] $end
+$var wire 1 w! md_tx_offset [0] $end
+$var wire 1 x! md_tx_size [2] $end
+$var wire 1 y! md_tx_size [1] $end
+$var wire 1 z! md_tx_size [0] $end
+$var wire 1 {! md_tx_ready $end
+$upscope $end
+
+$scope module ctrl $end
+$var parameter 32 n$ ALGN_DATA_WIDTH $end
+$var parameter 32 o$ ALGN_OFFSET_WIDTH $end
+$var parameter 32 p$ ALGN_SIZE_WIDTH $end
+$var parameter 32 q$ FIFO_WIDTH $end
+$var parameter 32 r$ DATA_MSB $end
+$var parameter 32 s$ DATA_LSB $end
+$var parameter 32 t$ OFFSET_MSB $end
+$var parameter 32 u$ OFFSET_LSB $end
+$var parameter 32 v$ SIZE_MSB $end
+$var parameter 32 w$ SIZE_LSB $end
+$var wire 1 5 reset_n $end
+$var wire 1 4 clk $end
+$var wire 1 1# pop_valid $end
+$var wire 1 2# pop_data [36] $end
+$var wire 1 3# pop_data [35] $end
+$var wire 1 4# pop_data [34] $end
+$var wire 1 5# pop_data [33] $end
+$var wire 1 6# pop_data [32] $end
+$var wire 1 7# pop_data [31] $end
+$var wire 1 8# pop_data [30] $end
+$var wire 1 9# pop_data [29] $end
+$var wire 1 :# pop_data [28] $end
+$var wire 1 ;# pop_data [27] $end
+$var wire 1 <# pop_data [26] $end
+$var wire 1 =# pop_data [25] $end
+$var wire 1 ># pop_data [24] $end
+$var wire 1 ?# pop_data [23] $end
+$var wire 1 @# pop_data [22] $end
+$var wire 1 A# pop_data [21] $end
+$var wire 1 B# pop_data [20] $end
+$var wire 1 C# pop_data [19] $end
+$var wire 1 D# pop_data [18] $end
+$var wire 1 E# pop_data [17] $end
+$var wire 1 F# pop_data [16] $end
+$var wire 1 G# pop_data [15] $end
+$var wire 1 H# pop_data [14] $end
+$var wire 1 I# pop_data [13] $end
+$var wire 1 J# pop_data [12] $end
+$var wire 1 K# pop_data [11] $end
+$var wire 1 L# pop_data [10] $end
+$var wire 1 M# pop_data [9] $end
+$var wire 1 N# pop_data [8] $end
+$var wire 1 O# pop_data [7] $end
+$var wire 1 P# pop_data [6] $end
+$var wire 1 Q# pop_data [5] $end
+$var wire 1 R# pop_data [4] $end
+$var wire 1 S# pop_data [3] $end
+$var wire 1 T# pop_data [2] $end
+$var wire 1 U# pop_data [1] $end
+$var wire 1 V# pop_data [0] $end
+$var reg 1 x$ pop_ready $end
+$var reg 1 y$ push_valid $end
+$var reg 37 z$ push_data [36:0] $end
+$var wire 1 ~# push_ready $end
+$var wire 1 !$ ctrl_offset [1] $end
+$var wire 1 "$ ctrl_offset [0] $end
+$var wire 1 #$ ctrl_size [2] $end
+$var wire 1 $$ ctrl_size [1] $end
+$var wire 1 %$ ctrl_size [0] $end
+$var reg 2 {$ unaligned_offset [1:0] $end
+$var reg 3 |$ unaligned_size [2:0] $end
+$var reg 32 }$ unaligned_data [31:0] $end
+$var reg 3 ~$ unaligned_bytes_processed [2:0] $end
+$var reg 3 !% aligned_bytes_processed [2:0] $end
 $upscope $end
 
 $scope module regs $end
-$var parameter 32 v$ APB_ADDR_WIDTH $end
-$var parameter 32 w$ ALGN_DATA_WIDTH $end
-$var parameter 32 x$ STATUS_CNT_DROP_WIDTH $end
-$var parameter 32 y$ STATUS_RX_LVL_WIDTH $end
-$var parameter 32 z$ STATUS_TX_LVL_WIDTH $end
-$var parameter 32 {$ APB_DATA_WIDTH $end
-$var parameter 32 |$ ALGN_OFFSET_WIDTH $end
-$var parameter 32 }$ ALGN_SIZE_WIDTH $end
-$var parameter 32 ~$ ADDR_CTRL $end
-$var parameter 32 !% ADDR_STATUS $end
-$var parameter 32 "% ADDR_IRQEN $end
-$var parameter 32 #% ADDR_IRQ $end
-$var parameter 32 $% LSB_CTRL_SIZE $end
-$var parameter 32 %% LSB_CTRL_OFFSET $end
-$var parameter 32 &% LSB_CTRL_CLR $end
-$var parameter 32 '% LSB_STATUS_CNT_DROP $end
-$var parameter 32 (% LSB_STATUS_RX_LVL $end
-$var parameter 32 )% LSB_STATUS_TX_LVL $end
-$var parameter 32 *% LSB_IRQEN_RX_FIFO_EMPTY $end
-$var parameter 32 +% LSB_IRQEN_RX_FIFO_FULL $end
-$var parameter 32 ,% LSB_IRQEN_TX_FIFO_EMPTY $end
-$var parameter 32 -% LSB_IRQEN_TX_FIFO_FULL $end
-$var parameter 32 .% LSB_IRQEN_MAX_DROP $end
-$var parameter 32 /% LSB_IRQ_RX_FIFO_EMPTY $end
-$var parameter 32 0% LSB_IRQ_RX_FIFO_FULL $end
-$var parameter 32 1% LSB_IRQ_TX_FIFO_EMPTY $end
-$var parameter 32 2% LSB_IRQ_TX_FIFO_FULL $end
-$var parameter 32 3% LSB_IRQ_MAX_DROP $end
-$var wire 1 * pclk $end
-$var wire 1 + presetn $end
-$var wire 1 , paddr [15] $end
-$var wire 1 - paddr [14] $end
-$var wire 1 . paddr [13] $end
-$var wire 1 / paddr [12] $end
-$var wire 1 0 paddr [11] $end
-$var wire 1 1 paddr [10] $end
-$var wire 1 2 paddr [9] $end
-$var wire 1 3 paddr [8] $end
-$var wire 1 4 paddr [7] $end
-$var wire 1 5 paddr [6] $end
-$var wire 1 6 paddr [5] $end
-$var wire 1 7 paddr [4] $end
-$var wire 1 8 paddr [3] $end
-$var wire 1 9 paddr [2] $end
-$var wire 1 : paddr [1] $end
-$var wire 1 ; paddr [0] $end
-$var wire 1 < pwrite $end
-$var wire 1 = psel $end
-$var wire 1 > penable $end
-$var wire 1 ? pwdata [31] $end
-$var wire 1 @ pwdata [30] $end
-$var wire 1 A pwdata [29] $end
-$var wire 1 B pwdata [28] $end
-$var wire 1 C pwdata [27] $end
-$var wire 1 D pwdata [26] $end
-$var wire 1 E pwdata [25] $end
-$var wire 1 F pwdata [24] $end
-$var wire 1 G pwdata [23] $end
-$var wire 1 H pwdata [22] $end
-$var wire 1 I pwdata [21] $end
-$var wire 1 J pwdata [20] $end
-$var wire 1 K pwdata [19] $end
-$var wire 1 L pwdata [18] $end
-$var wire 1 M pwdata [17] $end
-$var wire 1 N pwdata [16] $end
-$var wire 1 O pwdata [15] $end
-$var wire 1 P pwdata [14] $end
-$var wire 1 Q pwdata [13] $end
-$var wire 1 R pwdata [12] $end
-$var wire 1 S pwdata [11] $end
-$var wire 1 T pwdata [10] $end
-$var wire 1 U pwdata [9] $end
-$var wire 1 V pwdata [8] $end
-$var wire 1 W pwdata [7] $end
-$var wire 1 X pwdata [6] $end
-$var wire 1 Y pwdata [5] $end
-$var wire 1 Z pwdata [4] $end
-$var wire 1 [ pwdata [3] $end
-$var wire 1 \ pwdata [2] $end
-$var wire 1 ] pwdata [1] $end
-$var wire 1 ^ pwdata [0] $end
-$var reg 1 4% pready $end
-$var reg 32 5% prdata [31:0] $end
-$var reg 1 6% pslverr $end
-$var reg 2 7% ctrl_offset [1:0] $end
-$var reg 3 8% ctrl_size [2:0] $end
-$var reg 1 9% ctrl_clr $end
-$var wire 1 !" status_cnt_drop [7] $end
-$var wire 1 "" status_cnt_drop [6] $end
-$var wire 1 #" status_cnt_drop [5] $end
-$var wire 1 $" status_cnt_drop [4] $end
-$var wire 1 %" status_cnt_drop [3] $end
-$var wire 1 &" status_cnt_drop [2] $end
-$var wire 1 '" status_cnt_drop [1] $end
-$var wire 1 (" status_cnt_drop [0] $end
-$var wire 1 T" status_rx_lvl [3] $end
-$var wire 1 U" status_rx_lvl [2] $end
-$var wire 1 V" status_rx_lvl [1] $end
-$var wire 1 W" status_rx_lvl [0] $end
-$var wire 1 X" status_tx_lvl [3] $end
-$var wire 1 Y" status_tx_lvl [2] $end
-$var wire 1 Z" status_tx_lvl [1] $end
-$var wire 1 [" status_tx_lvl [0] $end
-$var wire 1 S" rx_fifo_empty $end
-$var wire 1 R" rx_fifo_full $end
-$var wire 1 \" tx_fifo_empty $end
-$var wire 1 ]" tx_fifo_full $end
-$var wire 1 :% max_drop $end
-$var wire 1 s! irq $end
-$var wire 1 ;% addr_aligned [15] $end
-$var wire 1 <% addr_aligned [14] $end
-$var wire 1 =% addr_aligned [13] $end
-$var wire 1 >% addr_aligned [12] $end
-$var wire 1 ?% addr_aligned [11] $end
-$var wire 1 @% addr_aligned [10] $end
-$var wire 1 A% addr_aligned [9] $end
-$var wire 1 B% addr_aligned [8] $end
-$var wire 1 C% addr_aligned [7] $end
-$var wire 1 D% addr_aligned [6] $end
-$var wire 1 E% addr_aligned [5] $end
-$var wire 1 F% addr_aligned [4] $end
-$var wire 1 G% addr_aligned [3] $end
-$var wire 1 H% addr_aligned [2] $end
-$var wire 1 I% addr_aligned [1] $end
-$var wire 1 J% addr_aligned [0] $end
-$var reg 1 K% wr_ctrl_is_illegal $end
-$var wire 1 L% ctrl_size_wr_val [2] $end
-$var wire 1 M% ctrl_size_wr_val [1] $end
-$var wire 1 N% ctrl_size_wr_val [0] $end
-$var wire 1 O% ctrl_offset_wr_val [1] $end
-$var wire 1 P% ctrl_offset_wr_val [0] $end
-$var reg 32 Q% ctrl_rd_val [31:0] $end
-$var reg 1 R% irqen_rx_fifo_empty $end
-$var reg 1 S% irqen_rx_fifo_full $end
-$var reg 1 T% irqen_tx_fifo_empty $end
-$var reg 1 U% irqen_tx_fifo_full $end
-$var reg 1 V% irqen_max_drop $end
-$var reg 1 W% irq_rx_fifo_empty $end
-$var reg 1 X% irq_rx_fifo_full $end
-$var reg 1 Y% irq_tx_fifo_empty $end
-$var reg 1 Z% irq_tx_fifo_full $end
-$var reg 1 [% irq_max_drop $end
-$var reg 32 \% status_rd_val [31:0] $end
-$var reg 32 ]% irqen_rd_val [31:0] $end
-$var reg 32 ^% irq_rd_val [31:0] $end
-$var wire 1 _% edge_rx_fifo_empty $end
-$var wire 1 `% edge_rx_fifo_full $end
-$var wire 1 a% edge_tx_fifo_empty $end
-$var wire 1 b% edge_tx_fifo_full $end
-$var wire 1 c% edge_max_drop $end
+$var parameter 32 "% APB_ADDR_WIDTH $end
+$var parameter 32 #% ALGN_DATA_WIDTH $end
+$var parameter 32 $% STATUS_CNT_DROP_WIDTH $end
+$var parameter 32 %% STATUS_RX_LVL_WIDTH $end
+$var parameter 32 &% STATUS_TX_LVL_WIDTH $end
+$var parameter 32 '% APB_DATA_WIDTH $end
+$var parameter 32 (% ALGN_OFFSET_WIDTH $end
+$var parameter 32 )% ALGN_SIZE_WIDTH $end
+$var parameter 32 *% ADDR_CTRL $end
+$var parameter 32 +% ADDR_STATUS $end
+$var parameter 32 ,% ADDR_IRQEN $end
+$var parameter 32 -% ADDR_IRQ $end
+$var parameter 32 .% LSB_CTRL_SIZE $end
+$var parameter 32 /% LSB_CTRL_OFFSET $end
+$var parameter 32 0% LSB_CTRL_CLR $end
+$var parameter 32 1% LSB_STATUS_CNT_DROP $end
+$var parameter 32 2% LSB_STATUS_RX_LVL $end
+$var parameter 32 3% LSB_STATUS_TX_LVL $end
+$var parameter 32 4% LSB_IRQEN_RX_FIFO_EMPTY $end
+$var parameter 32 5% LSB_IRQEN_RX_FIFO_FULL $end
+$var parameter 32 6% LSB_IRQEN_TX_FIFO_EMPTY $end
+$var parameter 32 7% LSB_IRQEN_TX_FIFO_FULL $end
+$var parameter 32 8% LSB_IRQEN_MAX_DROP $end
+$var parameter 32 9% LSB_IRQ_RX_FIFO_EMPTY $end
+$var parameter 32 :% LSB_IRQ_RX_FIFO_FULL $end
+$var parameter 32 ;% LSB_IRQ_TX_FIFO_EMPTY $end
+$var parameter 32 <% LSB_IRQ_TX_FIFO_FULL $end
+$var parameter 32 =% LSB_IRQ_MAX_DROP $end
+$var wire 1 4 pclk $end
+$var wire 1 5 presetn $end
+$var wire 1 6 paddr [15] $end
+$var wire 1 7 paddr [14] $end
+$var wire 1 8 paddr [13] $end
+$var wire 1 9 paddr [12] $end
+$var wire 1 : paddr [11] $end
+$var wire 1 ; paddr [10] $end
+$var wire 1 < paddr [9] $end
+$var wire 1 = paddr [8] $end
+$var wire 1 > paddr [7] $end
+$var wire 1 ? paddr [6] $end
+$var wire 1 @ paddr [5] $end
+$var wire 1 A paddr [4] $end
+$var wire 1 B paddr [3] $end
+$var wire 1 C paddr [2] $end
+$var wire 1 D paddr [1] $end
+$var wire 1 E paddr [0] $end
+$var wire 1 F pwrite $end
+$var wire 1 G psel $end
+$var wire 1 H penable $end
+$var wire 1 I pwdata [31] $end
+$var wire 1 J pwdata [30] $end
+$var wire 1 K pwdata [29] $end
+$var wire 1 L pwdata [28] $end
+$var wire 1 M pwdata [27] $end
+$var wire 1 N pwdata [26] $end
+$var wire 1 O pwdata [25] $end
+$var wire 1 P pwdata [24] $end
+$var wire 1 Q pwdata [23] $end
+$var wire 1 R pwdata [22] $end
+$var wire 1 S pwdata [21] $end
+$var wire 1 T pwdata [20] $end
+$var wire 1 U pwdata [19] $end
+$var wire 1 V pwdata [18] $end
+$var wire 1 W pwdata [17] $end
+$var wire 1 X pwdata [16] $end
+$var wire 1 Y pwdata [15] $end
+$var wire 1 Z pwdata [14] $end
+$var wire 1 [ pwdata [13] $end
+$var wire 1 \ pwdata [12] $end
+$var wire 1 ] pwdata [11] $end
+$var wire 1 ^ pwdata [10] $end
+$var wire 1 _ pwdata [9] $end
+$var wire 1 ` pwdata [8] $end
+$var wire 1 a pwdata [7] $end
+$var wire 1 b pwdata [6] $end
+$var wire 1 c pwdata [5] $end
+$var wire 1 d pwdata [4] $end
+$var wire 1 e pwdata [3] $end
+$var wire 1 f pwdata [2] $end
+$var wire 1 g pwdata [1] $end
+$var wire 1 h pwdata [0] $end
+$var reg 1 >% pready $end
+$var reg 32 ?% prdata [31:0] $end
+$var reg 1 @% pslverr $end
+$var reg 2 A% ctrl_offset [1:0] $end
+$var reg 3 B% ctrl_size [2:0] $end
+$var reg 1 C% ctrl_clr $end
+$var wire 1 +" status_cnt_drop [7] $end
+$var wire 1 ," status_cnt_drop [6] $end
+$var wire 1 -" status_cnt_drop [5] $end
+$var wire 1 ." status_cnt_drop [4] $end
+$var wire 1 /" status_cnt_drop [3] $end
+$var wire 1 0" status_cnt_drop [2] $end
+$var wire 1 1" status_cnt_drop [1] $end
+$var wire 1 2" status_cnt_drop [0] $end
+$var wire 1 ^" status_rx_lvl [3] $end
+$var wire 1 _" status_rx_lvl [2] $end
+$var wire 1 `" status_rx_lvl [1] $end
+$var wire 1 a" status_rx_lvl [0] $end
+$var wire 1 b" status_tx_lvl [3] $end
+$var wire 1 c" status_tx_lvl [2] $end
+$var wire 1 d" status_tx_lvl [1] $end
+$var wire 1 e" status_tx_lvl [0] $end
+$var wire 1 ]" rx_fifo_empty $end
+$var wire 1 \" rx_fifo_full $end
+$var wire 1 f" tx_fifo_empty $end
+$var wire 1 g" tx_fifo_full $end
+$var wire 1 D% max_drop $end
+$var wire 1 }! irq $end
+$var wire 1 E% addr_aligned [15] $end
+$var wire 1 F% addr_aligned [14] $end
+$var wire 1 G% addr_aligned [13] $end
+$var wire 1 H% addr_aligned [12] $end
+$var wire 1 I% addr_aligned [11] $end
+$var wire 1 J% addr_aligned [10] $end
+$var wire 1 K% addr_aligned [9] $end
+$var wire 1 L% addr_aligned [8] $end
+$var wire 1 M% addr_aligned [7] $end
+$var wire 1 N% addr_aligned [6] $end
+$var wire 1 O% addr_aligned [5] $end
+$var wire 1 P% addr_aligned [4] $end
+$var wire 1 Q% addr_aligned [3] $end
+$var wire 1 R% addr_aligned [2] $end
+$var wire 1 S% addr_aligned [1] $end
+$var wire 1 T% addr_aligned [0] $end
+$var reg 1 U% wr_ctrl_is_illegal $end
+$var wire 1 V% ctrl_size_wr_val [2] $end
+$var wire 1 W% ctrl_size_wr_val [1] $end
+$var wire 1 X% ctrl_size_wr_val [0] $end
+$var wire 1 Y% ctrl_offset_wr_val [1] $end
+$var wire 1 Z% ctrl_offset_wr_val [0] $end
+$var reg 32 [% ctrl_rd_val [31:0] $end
+$var reg 1 \% irqen_rx_fifo_empty $end
+$var reg 1 ]% irqen_rx_fifo_full $end
+$var reg 1 ^% irqen_tx_fifo_empty $end
+$var reg 1 _% irqen_tx_fifo_full $end
+$var reg 1 `% irqen_max_drop $end
+$var reg 1 a% irq_rx_fifo_empty $end
+$var reg 1 b% irq_rx_fifo_full $end
+$var reg 1 c% irq_tx_fifo_empty $end
+$var reg 1 d% irq_tx_fifo_full $end
+$var reg 1 e% irq_max_drop $end
+$var reg 32 f% status_rd_val [31:0] $end
+$var reg 32 g% irqen_rd_val [31:0] $end
+$var reg 32 h% irq_rd_val [31:0] $end
+$var wire 1 i% edge_rx_fifo_empty $end
+$var wire 1 j% edge_rx_fifo_full $end
+$var wire 1 k% edge_tx_fifo_empty $end
+$var wire 1 l% edge_tx_fifo_full $end
+$var wire 1 m% edge_max_drop $end
 
 $scope module edge_detect_rx_fifo_empty $end
-$var parameter 32 d% EDGE $end
-$var parameter 32 e% RESET_VAL $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 S" data $end
-$var wire 1 _% detected $end
-$var reg 1 f% dly1_data $end
+$var parameter 32 n% EDGE $end
+$var parameter 32 o% RESET_VAL $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 ]" data $end
+$var wire 1 i% detected $end
+$var reg 1 p% dly1_data $end
 $upscope $end
 
 $scope module edge_detect_rx_fifo_full $end
-$var parameter 32 g% EDGE $end
-$var parameter 32 h% RESET_VAL $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 R" data $end
-$var wire 1 `% detected $end
-$var reg 1 i% dly1_data $end
+$var parameter 32 q% EDGE $end
+$var parameter 32 r% RESET_VAL $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 \" data $end
+$var wire 1 j% detected $end
+$var reg 1 s% dly1_data $end
 $upscope $end
 
 $scope module edge_detect_tx_fifo_empty $end
-$var parameter 32 j% EDGE $end
-$var parameter 32 k% RESET_VAL $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 \" data $end
-$var wire 1 a% detected $end
-$var reg 1 l% dly1_data $end
+$var parameter 32 t% EDGE $end
+$var parameter 32 u% RESET_VAL $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 f" data $end
+$var wire 1 k% detected $end
+$var reg 1 v% dly1_data $end
 $upscope $end
 
 $scope module edge_detect_tx_fifo_full $end
-$var parameter 32 m% EDGE $end
-$var parameter 32 n% RESET_VAL $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 ]" data $end
-$var wire 1 b% detected $end
-$var reg 1 o% dly1_data $end
+$var parameter 32 w% EDGE $end
+$var parameter 32 x% RESET_VAL $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 g" data $end
+$var wire 1 l% detected $end
+$var reg 1 y% dly1_data $end
 $upscope $end
 
 $scope module edge_detect_max_drop $end
-$var parameter 32 p% EDGE $end
-$var parameter 32 q% RESET_VAL $end
-$var wire 1 * clk $end
-$var wire 1 + reset_n $end
-$var wire 1 :% data $end
-$var wire 1 c% detected $end
-$var reg 1 r% dly1_data $end
+$var parameter 32 z% EDGE $end
+$var parameter 32 {% RESET_VAL $end
+$var wire 1 4 clk $end
+$var wire 1 5 reset_n $end
+$var wire 1 D% data $end
+$var wire 1 m% detected $end
+$var reg 1 |% dly1_data $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -1253,205 +1266,205 @@ $upscope $end
 $upscope $end
 
 $scope begin uvm_pkg $end
-$var parameter 32 s% UVM_HDL_MAX_WIDTH $end
-$var parameter 32 t% UVM_STREAMBITS $end
-$var parameter 32 u% UVM_RADIX $end
-$var parameter 32 v% UVM_MACRO_NUMFLAGS $end
-$var parameter 32 w% UVM_DEFAULT $end
-$var parameter 32 x% UVM_ALL_ON $end
-$var parameter 32 y% UVM_FLAGS_ON $end
-$var parameter 32 z% UVM_FLAGS_OFF $end
-$var parameter 32 {% UVM_COPY $end
-$var parameter 32 |% UVM_NOCOPY $end
-$var parameter 32 }% UVM_COMPARE $end
-$var parameter 32 ~% UVM_NOCOMPARE $end
-$var parameter 32 !& UVM_PRINT $end
-$var parameter 32 "& UVM_NOPRINT $end
-$var parameter 32 #& UVM_RECORD $end
-$var parameter 32 $& UVM_NORECORD $end
-$var parameter 32 %& UVM_PACK $end
-$var parameter 32 && UVM_NOPACK $end
-$var parameter 32 '& UVM_PHYSICAL $end
-$var parameter 32 (& UVM_ABSTRACT $end
-$var parameter 32 )& UVM_READONLY $end
-$var parameter 32 *& UVM_NODEFPRINT $end
-$var parameter 32 +& UVM_MACRO_EXTRAS $end
-$var parameter 32 ,& UVM_FLAGS $end
-$var parameter 32 -& UVM_UNPACK $end
-$var parameter 32 .& UVM_CHECK_FIELDS $end
-$var parameter 32 /& UVM_END_DATA_EXTRA $end
-$var parameter 32 0& UVM_START_FUNCS $end
-$var parameter 32 1& UVM_SET $end
-$var parameter 32 2& UVM_SETINT $end
-$var parameter 32 3& UVM_SETOBJ $end
-$var parameter 32 4& UVM_SETSTR $end
-$var parameter 32 5& UVM_END_FUNCS $end
-$var parameter 32 6& UVM_STR_CRC_POLYNOMIAL $end
-$var parameter 32 7& UVM_STDOUT $end
-$var parameter 32 8& UVM_LINE_WIDTH $end
-$var parameter 32 9& UVM_NUM_LINES $end
-$var parameter 32 :& UVM_SMALL_STRING $end
-$var parameter 32 ;& UVM_LARGE_STRING $end
-$var reg 1 <& uvm_start_uvm_declarations $end
-$var integer 32 =& uvm_global_random_seed $end
-$var integer 32 >& UVM_UNBOUNDED_CONNECTIONS $end
+$var parameter 32 }% UVM_HDL_MAX_WIDTH $end
+$var parameter 32 ~% UVM_STREAMBITS $end
+$var parameter 32 !& UVM_RADIX $end
+$var parameter 32 "& UVM_MACRO_NUMFLAGS $end
+$var parameter 32 #& UVM_DEFAULT $end
+$var parameter 32 $& UVM_ALL_ON $end
+$var parameter 32 %& UVM_FLAGS_ON $end
+$var parameter 32 && UVM_FLAGS_OFF $end
+$var parameter 32 '& UVM_COPY $end
+$var parameter 32 (& UVM_NOCOPY $end
+$var parameter 32 )& UVM_COMPARE $end
+$var parameter 32 *& UVM_NOCOMPARE $end
+$var parameter 32 +& UVM_PRINT $end
+$var parameter 32 ,& UVM_NOPRINT $end
+$var parameter 32 -& UVM_RECORD $end
+$var parameter 32 .& UVM_NORECORD $end
+$var parameter 32 /& UVM_PACK $end
+$var parameter 32 0& UVM_NOPACK $end
+$var parameter 32 1& UVM_PHYSICAL $end
+$var parameter 32 2& UVM_ABSTRACT $end
+$var parameter 32 3& UVM_READONLY $end
+$var parameter 32 4& UVM_NODEFPRINT $end
+$var parameter 32 5& UVM_MACRO_EXTRAS $end
+$var parameter 32 6& UVM_FLAGS $end
+$var parameter 32 7& UVM_UNPACK $end
+$var parameter 32 8& UVM_CHECK_FIELDS $end
+$var parameter 32 9& UVM_END_DATA_EXTRA $end
+$var parameter 32 :& UVM_START_FUNCS $end
+$var parameter 32 ;& UVM_SET $end
+$var parameter 32 <& UVM_SETINT $end
+$var parameter 32 =& UVM_SETOBJ $end
+$var parameter 32 >& UVM_SETSTR $end
+$var parameter 32 ?& UVM_END_FUNCS $end
+$var parameter 32 @& UVM_STR_CRC_POLYNOMIAL $end
+$var parameter 32 A& UVM_STDOUT $end
+$var parameter 32 B& UVM_LINE_WIDTH $end
+$var parameter 32 C& UVM_NUM_LINES $end
+$var parameter 32 D& UVM_SMALL_STRING $end
+$var parameter 32 E& UVM_LARGE_STRING $end
+$var reg 1 F& uvm_start_uvm_declarations $end
+$var integer 32 G& uvm_global_random_seed $end
+$var integer 32 H& UVM_UNBOUNDED_CONNECTIONS $end
 
 $scope function uvm_hdl_check_path $end
-$var integer 32 ?& uvm_hdl_check_path $end
+$var integer 32 I& uvm_hdl_check_path $end
 $upscope $end
 
 $scope function uvm_hdl_deposit $end
-$var integer 32 @& uvm_hdl_deposit $end
-$var reg 1024 A& value [1023:0] $end
+$var integer 32 J& uvm_hdl_deposit $end
+$var reg 1024 K& value [1023:0] $end
 $upscope $end
 
 $scope function uvm_hdl_force $end
-$var integer 32 B& uvm_hdl_force $end
-$var reg 1024 C& value [1023:0] $end
+$var integer 32 L& uvm_hdl_force $end
+$var reg 1024 M& value [1023:0] $end
 $upscope $end
 
 $scope task uvm_hdl_force_time $end
-$var reg 1024 D& value [1023:0] $end
-$var time 64 E& force_time $end
+$var reg 1024 N& value [1023:0] $end
+$var time 64 O& force_time $end
 $upscope $end
 
 $scope function uvm_hdl_release_and_read $end
-$var integer 32 F& uvm_hdl_release_and_read $end
-$var reg 1024 G& value [1023:0] $end
+$var integer 32 P& uvm_hdl_release_and_read $end
+$var reg 1024 Q& value [1023:0] $end
 $upscope $end
 
 $scope function uvm_hdl_release $end
-$var integer 32 H& uvm_hdl_release $end
+$var integer 32 R& uvm_hdl_release $end
 $upscope $end
 
 $scope function uvm_hdl_read $end
-$var integer 32 I& uvm_hdl_read $end
-$var reg 1024 J& value [1023:0] $end
+$var integer 32 S& uvm_hdl_read $end
+$var reg 1024 T& value [1023:0] $end
 $upscope $end
 
 $scope function uvm_dpi_regexec $end
-$var integer 32 K& uvm_dpi_regexec $end
+$var integer 32 U& uvm_dpi_regexec $end
 $upscope $end
 
 $scope function uvm_re_match $end
-$var integer 32 L& uvm_re_match $end
+$var integer 32 V& uvm_re_match $end
 $upscope $end
 
 $scope function uvm_radix_to_string $end
-$var integer 32 M& radix $end
+$var integer 32 W& radix $end
 $upscope $end
 
 $scope function uvm_instance_scope $end
-$var reg 8 N& c [7:0] $end
-$var integer 32 O& pos $end
+$var reg 8 X& c [7:0] $end
+$var integer 32 Y& pos $end
 $upscope $end
 
 $scope function uvm_oneway_hash $end
-$var integer 32 P& uvm_oneway_hash $end
-$var integer 32 Q& seed $end
-$var reg 1 R& msb $end
-$var reg 8 S& current_byte [7:0] $end
-$var reg 32 T& crc1 [31:0] $end
+$var integer 32 Z& uvm_oneway_hash $end
+$var integer 32 [& seed $end
+$var reg 1 \& msb $end
+$var reg 8 ]& current_byte [7:0] $end
+$var reg 32 ^& crc1 [31:0] $end
 $upscope $end
 
 $scope function uvm_create_random_seed $end
-$var integer 32 U& uvm_create_random_seed $end
+$var integer 32 _& uvm_create_random_seed $end
 $upscope $end
 
 $scope function uvm_leaf_scope $end
-$var reg 8 V& scope_separator [7:0] $end
-$var reg 8 W& bracket_match [7:0] $end
-$var integer 32 X& pos $end
-$var integer 32 Y& bmatches $end
+$var reg 8 `& scope_separator [7:0] $end
+$var reg 8 a& bracket_match [7:0] $end
+$var integer 32 b& pos $end
+$var integer 32 c& bmatches $end
 $upscope $end
 
 $scope function uvm_vector_to_string $end
-$var reg 4096 Z& value [4095:0] $end
-$var integer 32 [& size $end
-$var integer 32 \& radix $end
+$var reg 4096 d& value [4095:0] $end
+$var integer 32 e& size $end
+$var integer 32 f& radix $end
 $upscope $end
 
 $scope function uvm_get_array_index_int $end
-$var integer 32 ]& uvm_get_array_index_int $end
-$var reg 1 ^& is_wildcard $end
-$var integer 32 _& i $end
+$var integer 32 g& uvm_get_array_index_int $end
+$var reg 1 h& is_wildcard $end
+$var integer 32 i& i $end
 $upscope $end
 
 $scope function uvm_get_array_index_string $end
-$var reg 1 `& is_wildcard $end
-$var integer 32 a& i $end
+$var reg 1 j& is_wildcard $end
+$var integer 32 k& i $end
 $upscope $end
 
 $scope function uvm_is_array $end
-$var reg 1 b& uvm_is_array $end
+$var reg 1 l& uvm_is_array $end
 $upscope $end
 
 $scope function set_global_timeout $end
-$var time 64 c& timeout $end
-$var reg 1 d& overridable $end
+$var time 64 m& timeout $end
+$var reg 1 n& overridable $end
 $upscope $end
 
 $scope function set_global_stop_timeout $end
-$var time 64 e& timeout $end
+$var time 64 o& timeout $end
 $upscope $end
 
 $scope function uvm_report_enabled $end
-$var reg 1 f& uvm_report_enabled $end
-$var integer 32 g& verbosity $end
-$var reg 2 h& severity [1:0] $end
+$var reg 1 p& uvm_report_enabled $end
+$var integer 32 q& verbosity $end
+$var reg 2 r& severity [1:0] $end
 $upscope $end
 
 $scope function uvm_report $end
-$var reg 2 i& severity [1:0] $end
-$var integer 32 j& verbosity $end
-$var integer 32 k& line $end
+$var reg 2 s& severity [1:0] $end
+$var integer 32 t& verbosity $end
+$var integer 32 u& line $end
 $upscope $end
 
 $scope function uvm_report_info $end
-$var integer 32 l& verbosity $end
-$var integer 32 m& line $end
+$var integer 32 v& verbosity $end
+$var integer 32 w& line $end
 $upscope $end
 
 $scope function uvm_report_warning $end
-$var integer 32 n& verbosity $end
-$var integer 32 o& line $end
+$var integer 32 x& verbosity $end
+$var integer 32 y& line $end
 $upscope $end
 
 $scope function uvm_report_error $end
-$var integer 32 p& verbosity $end
-$var integer 32 q& line $end
+$var integer 32 z& verbosity $end
+$var integer 32 {& line $end
 $upscope $end
 
 $scope function uvm_report_fatal $end
-$var integer 32 r& verbosity $end
-$var integer 32 s& line $end
+$var integer 32 |& verbosity $end
+$var integer 32 }& line $end
 $upscope $end
 
 $scope function uvm_string_to_severity $end
-$var reg 1 t& uvm_string_to_severity $end
-$var reg 2 u& sev [1:0] $end
+$var reg 1 ~& uvm_string_to_severity $end
+$var reg 2 !' sev [1:0] $end
 $upscope $end
 
 $scope function set_config_int $end
-$var reg 4096 v& value [4095:0] $end
+$var reg 4096 "' value [4095:0] $end
 $upscope $end
 
 $scope function set_config_object $end
-$var reg 1 w& clone $end
+$var reg 1 #' clone $end
 $upscope $end
 
 $scope function uvm_is_match $end
-$var reg 1 x& uvm_is_match $end
+$var reg 1 $' uvm_is_match $end
 $upscope $end
 
 $scope function uvm_string_to_bits $end
-$var reg 115200 y& uvm_string_to_bits [115199:0] $end
+$var reg 115200 %' uvm_string_to_bits [115199:0] $end
 $upscope $end
 
 $scope function uvm_bits_to_string $end
-$var reg 115200 z& str [115199:0] $end
+$var reg 115200 &' str [115199:0] $end
 $upscope $end
 
 $scope task uvm_wait_for_nba_region $end
-$var integer 32 {& nba $end
-$var integer 32 |& next_nba $end
+$var integer 32 '' nba $end
+$var integer 32 (' next_nba $end
