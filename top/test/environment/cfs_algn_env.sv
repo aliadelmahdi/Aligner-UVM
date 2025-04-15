@@ -1,7 +1,5 @@
 `ifndef CFS_ALGN_ENV_SV
     `define CFS_ALGN_ENV_SV
-    `include "cfs_apb_pkg.sv"
-    import cfs_apb_pkg::*;
     import uvm_pkg::*;
     `include "uvm_macros.svh"
     class cfs_algn_env extends uvm_env;
@@ -17,7 +15,6 @@
             super.build_phase(phase);
             apb_agent = cfs_apb_agent::type_id::create("apb_agent", this);
         endfunction: build_phase
-
 
     endclass: cfs_algn_env
     

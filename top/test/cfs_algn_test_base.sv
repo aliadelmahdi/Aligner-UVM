@@ -3,8 +3,8 @@
     `include "uvm_macros.svh"
     import uvm_pkg::*;
     import cfs_algn_pkg::*;
-    class cfs_algn_test_base extends uvm_test;
 
+    class cfs_algn_test_base extends uvm_test;
         `uvm_component_utils(cfs_algn_test_base)
         cfs_algn_env env;
         function new(string name = "cfs_algn_test_base", uvm_component parent);
@@ -13,6 +13,7 @@
 
         virtual function void build_phase (uvm_phase phase);
             super.build_phase(phase);
+            factory.print();
             env = cfs_algn_env::type_id::create("env",this);
         endfunction: build_phase
     endclass : cfs_algn_test_base

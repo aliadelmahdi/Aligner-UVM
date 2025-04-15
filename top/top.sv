@@ -1,5 +1,4 @@
 `timescale 1ns/1ns
-`include "cfs_algn_test_pkg.sv"
 module tb_top;
 
     import uvm_pkg::*;
@@ -24,6 +23,7 @@ module tb_top;
         .reset_n(apb_if.preset_n),
         .psel(apb_if.psel),
         .penable(apb_if.penable),
+        .pwrite(apb_if.pwrite),
         .paddr(apb_if.paddr),
         .pwdata(apb_if.pwdata),
         .pready(apb_if.pready),

@@ -6,7 +6,8 @@
 
         logic preset_n; // Reset signal - active low
         logic psel; // APB Select
-        logic penable; // APB Write
+        logic penable; // APB Enable
+        logic pwrite; // APB Write
         logic [CFS_APB_MAX_ADDR_WIDTH-1:0] paddr; // APB address - bits paddr[1:0] are ignored and treated as equal to 2'b00 (word aligned)
         logic [CFS_APB_MAX_DATA_WIDTH-1:0] pwdata; // APB write data
         logic pready; // APB ready signal

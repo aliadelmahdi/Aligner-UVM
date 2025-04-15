@@ -12,7 +12,7 @@
             super.run_phase(phase);
             phase.raise_objection(this, "TEST_DONE");
             `uvm_info("DUBUG", "start of test", UVM_LOW)
-        
+            
             `uvm_info("DUBUG", "end of test", UVM_LOW)
             phase.drop_objection(this, "TEST_DONE");
         endtask: run_phase

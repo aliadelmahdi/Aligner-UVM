@@ -1,14 +1,3 @@
-+incdir+./design
-+incdir+./interface
-+incdir+./top
-+incdir+./top/test
-+incdir+./top/test/environment
-+incdir+./top/test/environment/apb_agent
-+incdir+./top/test/environment/apb_agent/driver
-+incdir+./top/test/environment/apb_agent/monitor
-+incdir+./top/test/environment/apb_agent/sequencer
-+incdir+./top/test/environment/coverage_collector
-+incdir+./top/test/environment/scoreboard
 
 # Interface files
 interface/cfs_apb_if.sv
@@ -23,18 +12,6 @@ design/cfs_regs.v
 design/cfs_aligner_core.v
 design/cfs_aligner.v
 
-# Testbench objects
-
-
-# objects
-
-# Driver files
-
-# Monitor files
-
-# Sequencer files
-
-
 # Agents
 top/test/environment/apb_agent/cfs_apb_pkg.sv
 
@@ -42,7 +19,6 @@ top/test/environment/apb_agent/cfs_apb_pkg.sv
 
 # Environment files
 top/test/environment/cfs_algn_pkg.sv
-top/test/environment/cfs_algn_env.sv
 
 # Test files
 top/test/cfs_algn_test_base.sv
@@ -51,3 +27,16 @@ top/test/cfs_algn_test_pkg.sv
 
 # Top-level file
 top/top.sv
+
++incdir+./design
++incdir+./interface
++incdir+./objects
++incdir+./top
++incdir+./top/test
++incdir+./top/test/environment
++incdir+./top/test/environment/apb_agent
++incdir+./top/test/environment/apb_agent/driver
++incdir+./top/test/environment/apb_agent/monitor
++incdir+./top/test/environment/apb_agent/sequencer
++incdir+./top/test/environment/coverage_collector
++incdir+./top/test/environment/scoreboard
